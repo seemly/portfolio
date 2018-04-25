@@ -3,7 +3,6 @@ namespace App\Application;
 
 use App\Application\Controllers\CvController;
 use Cubex\Kernel\ApplicationKernel;
-use Cubex\Responses\Error404Response;
 
 class Application extends ApplicationKernel
 {
@@ -16,6 +15,6 @@ class Application extends ApplicationKernel
 
   public function defaultAction()
   {
-    return Error404Response::create();
+    return 'Need to sort defaultAction in Application';
   }
 }

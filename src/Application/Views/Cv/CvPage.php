@@ -19,10 +19,10 @@ class CvPage extends AbstractContainerPage
   {
     $section = Div::create(
       [
-        Div::create($name)->addClass('col-3'),
+        Div::create($name)->addClass('col-sm-3'),
         Div::create($content)->addClass('col'),
       ]
-    )->addClass('row', 'justify-content-md-center');
+    )->addClass('row', 'justify-content-sm-center');
     return $section;
   }
 
