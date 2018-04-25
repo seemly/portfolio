@@ -1,19 +1,47 @@
 <?php
 namespace App\Application\Controllers;
 
-use Cubex\View\LayoutController;
-use Packaged\Glimpse\Core\HtmlTag;
-
-class AbstractAppController extends LayoutController
+class AbstractAppController extends BaseAbstractAppController
 {
-  /** @var  string */
-  protected $_pageTitle;
-  /** @var  array */
-  protected $_metaTags;
 
   protected function _init()
   {
     $this->_prepareMetaTags();
+    $this->_headAssets();
+    $this->_jsAssets();
+  }
+
+  protected function _headAssets()
+  {
+    $links = [
+      $this->_css('vendor/fontawesome/css/font-awesome.min.css'),
+      $this->_css('vendor/bootstrap/css/bootstrap.min.css'),
+      $this->_css('css/base.css'),
+      $this->_favIcon('/favicon.ico'),
+    ];
+
+    $this->layout()->setData('css', implode("\r\n", $links));
+  }
+
+  protected function _jsAssets()
+  {
+    $links = [
+      $this->_js('vendor/jquery/jquery-3.3.1.min.js'),
+      $this->_js('vendor/bootstrap/js/bootstrap.min.js'),
+    ];
+
+    $this->layout()->setData('js', implode("\r\n", $links));
+  }
+
+  /**
+   * @param string $title
+   *
+   * @return $this
+   */
+  public function setPageTitle($title)
+  {
+    $this->layout()->setData('title', $title);
+    return $this;
   }
 
   /**
@@ -22,56 +50,10 @@ class AbstractAppController extends LayoutController
    *
    * @return $this
    */
-  public function addMetaTag($name = '', $content = '')
+  public function addMetaTag($name, $content)
   {
     $this->_metaTags[$name] = $content;
     $this->_prepareMetaTags();
-    return $this;
-  }
-
-  /**
-   * @param string $name
-   * @param string $content
-   *
-   * @return HtmlTag
-   */
-  protected function _createMetaTag($name = '', $content = '')
-  {
-    $tag = HtmlTag::createTag('meta');
-    $tag->setAttribute('name', $name);
-    $tag->setAttribute('content', $content);
-    return $tag;
-  }
-
-  protected function _prepareMetaTags()
-  {
-    if($this->_metaTags)
-    {
-      $tags = '';
-      foreach($this->_metaTags as $name => $content)
-      {
-        $tags .= $this->_createMetaTag($name, $content) . "\n";
-      }
-      $this->layout()->setData('metaTags', $tags);
-    }
-    return $this;
-  }
-
-  /**
-   * @param      $title
-   * @param bool $layoutOnly
-   *
-   * @return $this
-   */
-  public function setPageTitle($title, $layoutOnly = false)
-  {
-    if(!$layoutOnly)
-    {
-      $this->_pageTitle = $title;
-    }
-
-    $this->layout()->setData('title', $this->_pageTitle);
-
     return $this;
   }
 

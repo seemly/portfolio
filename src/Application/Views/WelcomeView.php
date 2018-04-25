@@ -1,22 +1,28 @@
 <?php
 namespace App\Application\Views;
 
-use Cubex\View\TemplatedViewModel;
-use Packaged\Dispatch\AssetManager;
+use App\Application\Views\PageLayouts\ContainerPage;
 
-class WelcomeView extends TemplatedViewModel
+class WelcomeView extends ContainerPage
 {
-  /**
-   * @var AssetManager
-   */
-  public $am;
-
-  /**
-   * @param AssetManager $am
-   */
-  public function __construct(AssetManager $am)
+  protected function _getHeader()
   {
-    $this->am = $am;
+    // TODO: Implement _getHeader() method.
+  }
+
+  protected function _getHeadline()
+  {
+    return 'Welcome View';
+  }
+
+  protected function _getContent()
+  {
+    // TODO: Implement _getContent() method.
+  }
+
+  protected function _getFooter()
+  {
+    // TODO: Implement _getFooter() method.
   }
 
 }
