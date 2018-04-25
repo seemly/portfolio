@@ -1,29 +1,16 @@
 <?php
 namespace App\Application\Views;
 
-use App\Application\Views\PageLayouts\ContainerPage;
+use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Fortifi\FontAwesome\FaIcon;
+use Packaged\Glimpse\Tags\Text\HeadingOne;
 
-class WelcomeView extends ContainerPage
+class WelcomeView extends AbstractContainerPage
 {
-  protected function _getHeader()
-  {
-    // TODO: Implement _getHeader() method.
-  }
-
-  protected function _getHeadline()
-  {
-    return ['Welcome View ', FaIcon::create(FaIcon::ROCKET)];
-  }
 
   protected function _getContent()
   {
-    // TODO: Implement _getContent() method.
-  }
-
-  protected function _getFooter()
-  {
-    // TODO: Implement _getFooter() method.
+    return HeadingOne::create(['Welcome View ', FaIcon::create(FaIcon::ROCKET)]);
   }
 
 }

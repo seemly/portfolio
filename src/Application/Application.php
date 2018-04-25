@@ -1,16 +1,21 @@
 <?php
 namespace App\Application;
 
+use App\Application\Controllers\CvController;
 use Cubex\Kernel\ApplicationKernel;
-use App\Application\Controllers\WelcomeController;
+use Cubex\Responses\Error404Response;
 
 class Application extends ApplicationKernel
 {
-  /**
-   * @return WelcomeController
-   */
+  public function getRoutes()
+  {
+    return [
+      'cv' => CvController::class,
+    ];
+  }
+
   public function defaultAction()
   {
-    return new WelcomeController();
+    return Error404Response::create();
   }
 }
