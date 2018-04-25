@@ -2,6 +2,7 @@
 namespace App\Application\Views;
 
 use App\Application\Views\PageLayouts\ContainerPage;
+use Fortifi\FontAwesome\FaIcon;
 
 class WelcomeView extends ContainerPage
 {
@@ -12,7 +13,7 @@ class WelcomeView extends ContainerPage
 
   protected function _getHeadline()
   {
-    return 'Welcome View';
+    return ['Welcome View ', FaIcon::create(FaIcon::ROCKET)];
   }
 
   protected function _getContent()

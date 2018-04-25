@@ -25,9 +25,20 @@ class AbstractAppController extends BaseAbstractAppController
 
   protected function _jsAssets()
   {
+    $faIcon = $this->_js(
+      'https://pro.fontawesome.com/releases/v5.0.10/js/all.js'
+    );
+    $faIcon->setAttribute('defer', true);
+    $faIcon->setAttribute('crossorigin', 'anonymous');
+    $faIcon->setAttribute(
+      'integrity',
+      'sha384-+1nLPoB0gaUktsZJP+ycZectl3GX7wP8Xf2PE/JHrb7X1u7Emm+v7wJMbAcPr8Ge'
+    );
+
     $links = [
       $this->_js('vendor/jquery/jquery-3.3.1.min.js'),
       $this->_js('vendor/bootstrap/js/bootstrap.min.js'),
+      $faIcon,
     ];
 
     $this->layout()->setData('js', implode("\r\n", $links));
