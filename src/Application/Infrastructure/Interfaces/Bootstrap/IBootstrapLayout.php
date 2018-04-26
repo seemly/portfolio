@@ -8,7 +8,7 @@ interface IBootstrapLayout
 
   const ROW = 'row';
   const COL = 'col';
-  
+
   const COL_SM = self::COL . '-sm';
   const COL_MD = self::COL . '-md';
   const COL_LG = self::COL . '-lg';

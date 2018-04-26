@@ -2,9 +2,8 @@
 namespace App\Application\Infrastructure\Interfaces\Bootstrap;
 
 interface IBootstrap
-  extends IBootstrapFlex,
+  extends IBootstrapLayout,
           IBootstrapUtilities
 
 {
-
 }
