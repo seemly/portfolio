@@ -38,7 +38,7 @@ class AbstractAppController extends BaseAbstractAppController
     $links = [
       $this->_js('vendor/jquery/jquery-3.3.1.min.js'),
       $this->_js('vendor/bootstrap/js/bootstrap.min.js'),
-      $faIcon,
+//      $faIcon,
     ];
 
     $this->layout()->setData('js', implode("\r\n", $links));
