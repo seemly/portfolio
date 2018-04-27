@@ -6,6 +6,7 @@ use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
 use App\Application\Partials\Cv\Jobs\One2create;
+use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Lists\ListItem;
@@ -47,17 +48,15 @@ class CvPage extends AbstractContainerPage
    */
   protected function _section($name, $content)
   {
-    $className = Strings::stringToCamelCase($name);
+    $heading = Div::create(HeadingTwo::create($name));
+    $heading->addClass(BS::COL_LG_2, BS::MB_3);
 
-    return Div::create(
-      [
-        Div::create(HeadingTwo::create($name))->addClass(
-          BS::COL_LG_2,
-          BS::MB_3
-        ),
-        Div::create($content)->addClass(BS::COL),
-      ]
-    )->addClass(BS::ROW, BS::JUSTIFY_CONTENT_SM_CENTER, $className, 'section');
+    $contentColumn = Div::create($content)->addClass(BS::COL);
+
+    $section = Div::create([$heading, $contentColumn]);
+    $section->addClass('section', Strings::stringToCamelCase($name));
+    $section->addClass(BS::ROW, BS::JUSTIFY_CONTENT_SM_CENTER);
+    return $section;
   }
 
   /**
@@ -152,6 +151,7 @@ class CvPage extends AbstractContainerPage
         JustDevelopIt::i(),
         MadProductions::i(),
         One2create::i(),
+        VandF::i(),
       ]
     );
   }
