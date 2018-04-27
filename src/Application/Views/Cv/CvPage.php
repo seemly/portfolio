@@ -4,6 +4,7 @@ namespace App\Application\Views\Cv;
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Packaged\Glimpse\Tags\Div;
+use Packaged\Glimpse\Tags\Lists\ListItem;
 use Packaged\Glimpse\Tags\Lists\UnorderedList;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
 use Packaged\Glimpse\Tags\Text\HeadingThree;
@@ -75,7 +76,7 @@ class CvPage extends AbstractContainerPage
         HeadingThree::create($title),
         Paragraph::create($content),
       ]
-    )->addClass(BS::COL_MD_4, 'skill');
+    )->addClass(BS::COL_LG_4, 'skill');
   }
 
   /**
@@ -89,7 +90,7 @@ class CvPage extends AbstractContainerPage
       [
         $this->_createSkill('HTML & CSS', $dummy),
         $this->_createSkill('Javascript', $dummy),
-        $this->_createSkill('PHP', $dummy),
+        $this->_createSkill('PHP & MySQL', $dummy),
       ]
     )->addClass(BS::ROW);
 
@@ -110,14 +111,29 @@ class CvPage extends AbstractContainerPage
       'MySQL',
       'GIT',
       'Photoshop',
+      'Mac OS',
+      'Windows OS',
     ];
 
-    $list = UnorderedList::create();
-    $list->addItems($items);
+    $lists = Div::create()->addClass(BS::ROW);
+    $chunks = array_chunk($items, ceil(count($items) / 3));
+    foreach($chunks as $chunk)
+    {
+      $list = UnorderedList::create();
+      $list->addClass(BS::LIST_GROUP_FLUSH, BS::COL_SM_4, BS::PX_0);
 
-    $content = Div::create($list)->addClass(BS::ROW);
+      foreach($chunk as $item)
+      {
+        $li = ListItem::create($item);
+        $li->addClass(BS::LIST_GROUP_ITEM, BS::BG_TRANSPARENT);
 
-    return $this->_section('Technical', $content);
+        $list->addItem($li);
+      }
+
+      $lists->appendContent($list);
+    }
+
+    return $this->_section('Technical', $lists);
   }
 
   /**

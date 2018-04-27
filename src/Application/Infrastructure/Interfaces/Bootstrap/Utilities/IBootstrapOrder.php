@@ -1,5 +1,5 @@
 <?php
-namespace App\Application\Infrastructure\Interfaces\Bootstrap;
+namespace App\Application\Infrastructure\Interfaces\Bootstrap\Utilities;
 
 interface IBootstrapOrder
 {
