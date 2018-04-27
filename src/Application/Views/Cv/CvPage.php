@@ -2,6 +2,10 @@
 namespace App\Application\Views\Cv;
 
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
+use App\Application\Partials\Cv\Jobs\Fortifi;
+use App\Application\Partials\Cv\Jobs\JustDevelopIt;
+use App\Application\Partials\Cv\Jobs\MadProductions;
+use App\Application\Partials\Cv\Jobs\One2create;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Lists\ListItem;
@@ -47,7 +51,7 @@ class CvPage extends AbstractContainerPage
 
     return Div::create(
       [
-        Div::create(HeadingTwo::create($name))->addClass(BS::COL_MD_4),
+        Div::create(HeadingTwo::create($name))->addClass(BS::COL_LG_2, BS::MB_3),
         Div::create($content)->addClass(BS::COL),
       ]
     )->addClass(BS::ROW, BS::JUSTIFY_CONTENT_SM_CENTER, $className, 'section');
@@ -120,20 +124,30 @@ class CvPage extends AbstractContainerPage
     foreach($chunks as $chunk)
     {
       $list = UnorderedList::create();
-      $list->addClass(BS::LIST_GROUP_FLUSH, BS::COL_SM_4, BS::PX_0);
+      $list->addClass(BS::PX_3, BS::MY_0);
 
       foreach($chunk as $item)
       {
         $li = ListItem::create($item);
-        $li->addClass(BS::LIST_GROUP_ITEM, BS::BG_TRANSPARENT);
+        $li->addClass(BS::BG_TRANSPARENT, BS::BORDER_0, BS::PY_1);
 
         $list->addItem($li);
       }
 
-      $lists->appendContent($list);
+      $lists->appendContent(Div::create($list)->addClass(BS::COL_LG_4));
     }
 
     return $this->_section('Technical', $lists);
+  }
+
+  protected function _getExperienceItems()
+  {
+    return [
+      Fortifi::i(),
+      JustDevelopIt::i(),
+      MadProductions::i(),
+      One2create::i(),
+    ];
   }
 
   /**
@@ -141,7 +155,7 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getExperienceSection()
   {
-    return $this->_section('Experience', 'blah');
+    return $this->_section('Experience', $this->_getExperienceItems());
   }
 
   /**
@@ -153,18 +167,20 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return array
+   * @return Div
    */
   protected function _getContent()
   {
-    return [
-      $this->_intro(),
-      $this->_getProfileSection(),
-      $this->_getSkillsSection(),
-      $this->_getTechnicalSection(),
-      $this->_getExperienceSection(),
-      $this->_getEducationSection(),
-    ];
+    return Div::create(
+      [
+        $this->_intro(),
+        $this->_getProfileSection(),
+        $this->_getSkillsSection(),
+        $this->_getTechnicalSection(),
+        $this->_getExperienceSection(),
+        $this->_getEducationSection(),
+      ]
+    )->addClass(BS::P_5, BS::MX_3);
   }
 
 }
