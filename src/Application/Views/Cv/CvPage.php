@@ -51,7 +51,10 @@ class CvPage extends AbstractContainerPage
 
     return Div::create(
       [
-        Div::create(HeadingTwo::create($name))->addClass(BS::COL_LG_2, BS::MB_3),
+        Div::create(HeadingTwo::create($name))->addClass(
+          BS::COL_LG_2,
+          BS::MB_3
+        ),
         Div::create($content)->addClass(BS::COL),
       ]
     )->addClass(BS::ROW, BS::JUSTIFY_CONTENT_SM_CENTER, $className, 'section');
@@ -125,29 +128,16 @@ class CvPage extends AbstractContainerPage
     {
       $list = UnorderedList::create();
       $list->addClass(BS::PX_3, BS::MY_0);
-
       foreach($chunk as $item)
       {
         $li = ListItem::create($item);
         $li->addClass(BS::BG_TRANSPARENT, BS::BORDER_0, BS::PY_1);
-
         $list->addItem($li);
       }
-
       $lists->appendContent(Div::create($list)->addClass(BS::COL_LG_4));
     }
 
     return $this->_section('Technical', $lists);
-  }
-
-  protected function _getExperienceItems()
-  {
-    return [
-      Fortifi::i(),
-      JustDevelopIt::i(),
-      MadProductions::i(),
-      One2create::i(),
-    ];
   }
 
   /**
@@ -155,7 +145,15 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getExperienceSection()
   {
-    return $this->_section('Experience', $this->_getExperienceItems());
+    return $this->_section(
+      'Experience',
+      [
+        Fortifi::i(),
+        JustDevelopIt::i(),
+        MadProductions::i(),
+        One2create::i(),
+      ]
+    );
   }
 
   /**
