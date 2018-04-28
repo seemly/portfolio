@@ -7,7 +7,8 @@ interface IBootstrapUtilities
           IBootstrapText,
           IBootstrapBgColour,
           IBootstrapFloat,
-          IBootstrapShadow
+          IBootstrapShadow,
+          IBootstrapDisplay
 {
   const CLEARFIX = 'clearfix';
 

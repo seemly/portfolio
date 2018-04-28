@@ -4,6 +4,7 @@ namespace App\Application\Partials\Cv\Jobs;
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
 use Packaged\Glimpse\Core\HtmlTag;
 use Packaged\Glimpse\Tags\Div;
+use Packaged\Glimpse\Tags\Span;
 use Packaged\Glimpse\Tags\Text\HeadingFour;
 use Packaged\Glimpse\Tags\Text\HeadingThree;
 use Packaged\Glimpse\Tags\Text\Paragraph;
@@ -67,15 +68,20 @@ abstract class AbstractCvJobItem
   }
 
   /**
-   * @return Paragraph
+   * @return Div
    */
   protected function _getDates()
   {
-    return Paragraph::create(
+    return Div::create(
       [
-        $this->_jobStartDate(),
-        ' - ',
-        $this->_jobEndDate(),
+        Span::create(
+          [
+            $this->_jobStartDate(),
+            ' - ',
+            $this->_jobEndDate(),
+          ]
+        )->addClass(BS::DISPLAY_BLOCK),
+        Span::create('Portsmouth')->addClass(BS::DISPLAY_BLOCK, BS::TEXT_RIGHT),
       ]
     )->addClass('dates');
   }

@@ -2,6 +2,7 @@
 namespace App\Application\Views\Cv;
 
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
+use App\Application\Partials\Cv\Jobs\AbacusEmedia;
 use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
@@ -148,6 +149,7 @@ class CvPage extends AbstractContainerPage
       'Experience',
       [
         Fortifi::i(),
+        AbacusEmedia::i(),
         JustDevelopIt::i(),
         MadProductions::i(),
         One2create::i(),
