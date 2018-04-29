@@ -30,6 +30,14 @@ class One2create extends AbstractCvJobItem
   }
 
   /**
+   * @return string
+   */
+  protected function _location()
+  {
+    return 'Droxford, Southampton';
+  }
+
+  /**
    * @return HtmlTag
    */
   protected function _jobStartDate()

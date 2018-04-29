@@ -2,6 +2,7 @@
 namespace App\Application\Partials\Cv\Jobs;
 
 use Packaged\Glimpse\Core\HtmlTag;
+use Packaged\Glimpse\Tags\Text\Paragraph;
 
 class Fortifi extends AbstractCvJobItem
 {
@@ -22,11 +23,24 @@ class Fortifi extends AbstractCvJobItem
   }
 
   /**
-   * @return string
+   * @return array
    */
   protected function _description()
   {
-    return 'Build stuff in fortifi';
+    return [
+      Paragraph::create(
+        'Front-end focused PHP developer, working with both PHP, HTML, CSS and JS to create the UI ' .
+        'for an all encompassing billing, affiliate, support, CRM and email messaging service.'
+      ),
+    ];
+  }
+
+  /**
+   * @return string
+   */
+  protected function _location()
+  {
+    return 'Whiteley, Fareham';
   }
 
   /**

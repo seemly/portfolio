@@ -7,7 +7,6 @@ use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Span;
 use Packaged\Glimpse\Tags\Text\HeadingFour;
 use Packaged\Glimpse\Tags\Text\HeadingThree;
-use Packaged\Glimpse\Tags\Text\Paragraph;
 
 abstract class AbstractCvJobItem
 {
@@ -31,6 +30,11 @@ abstract class AbstractCvJobItem
    * @return string
    */
   abstract protected function _description();
+
+  /**
+   * @return string
+   */
+  abstract protected function _location();
 
   /**
    * @return HtmlTag
@@ -70,7 +74,7 @@ abstract class AbstractCvJobItem
   /**
    * @return Div
    */
-  protected function _getDates()
+  protected function _getJobMeta()
   {
     return Div::create(
       [
@@ -80,10 +84,12 @@ abstract class AbstractCvJobItem
             ' - ',
             $this->_jobEndDate(),
           ]
-        )->addClass(BS::DISPLAY_BLOCK),
-        Span::create('Portsmouth')->addClass(BS::DISPLAY_BLOCK, BS::TEXT_RIGHT),
+        )->addClass('dates', BS::DISPLAY_BLOCK, BS::TEXT_RIGHT),
+        Span::create(
+          $this->_location()
+        )->addClass('location', BS::DISPLAY_BLOCK, BS::TEXT_RIGHT),
       ]
-    )->addClass('dates');
+    )->addClass('meta');
   }
 
   /**
@@ -94,7 +100,7 @@ abstract class AbstractCvJobItem
     return Div::create(
       Div::create(
         [
-          $this->_getDates(),
+          $this->_getJobMeta(),
           HeadingThree::create($this->_employer())->addClass('employer'),
           HeadingFour::create($this->_jobTitle())->addClass('job-title', BS::MB_4),
           Div::create($this->_description())->addClass('description'),

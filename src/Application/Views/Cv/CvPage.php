@@ -7,6 +7,7 @@ use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
 use App\Application\Partials\Cv\Jobs\One2create;
+use App\Application\Partials\Cv\Jobs\Seemly;
 use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Packaged\Glimpse\Tags\Div;
@@ -149,6 +150,7 @@ class CvPage extends AbstractContainerPage
       'Experience',
       [
         Fortifi::i(),
+        Seemly::i(),
         AbacusEmedia::i(),
         JustDevelopIt::i(),
         MadProductions::i(),

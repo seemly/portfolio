@@ -30,6 +30,14 @@ class VandF extends AbstractCvJobItem
   }
 
   /**
+   * @return string
+   */
+  protected function _location()
+  {
+    return 'Whiteley, Fareham';
+  }
+
+  /**
    * @return HtmlTag
    */
   protected function _jobStartDate()

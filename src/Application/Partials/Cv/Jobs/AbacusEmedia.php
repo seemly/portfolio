@@ -2,6 +2,7 @@
 namespace App\Application\Partials\Cv\Jobs;
 
 use Packaged\Glimpse\Core\HtmlTag;
+use Packaged\Glimpse\Tags\Text\Paragraph;
 
 class AbacusEmedia extends AbstractCvJobItem
 {
@@ -22,11 +23,29 @@ class AbacusEmedia extends AbstractCvJobItem
   }
 
   /**
-   * @return string
+   * @return array
    */
   protected function _description()
   {
-    return 'Build new and maintain current websites developed on the in-house proprietary platform, WebVision.';
+    return [
+      Paragraph::create(
+        'I was employed as a member of the frontend development team, ' .
+        'tasked with both building and maintaining the HTML, CSS and implementation of ' .
+        'in-house JS plugins to B2B media publishing Saas platform; WebVision.'
+      ),
+      Paragraph::create(
+        'During my time working at Abacus e-Media using the proprietary in-house system (WebVision), ' .
+        'I had the honour of templating the company website for the next stage of the companies marketing phase.'
+      ),
+    ];
+  }
+
+  /**
+   * @return string
+   */
+  protected function _location()
+  {
+    return 'Gun Wharf, Portsmouth';
   }
 
   /**
