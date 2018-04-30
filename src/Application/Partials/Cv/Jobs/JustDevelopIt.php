@@ -31,7 +31,15 @@ class JustDevelopIt extends AbstractCvJobItem
     return [
       Paragraph::create(
         'During my employment at JDI, I was the sole front-end developer tasked with ' .
-        'developing and managing the front-end of 6 different cloud backup customer facing, marketing related websites.'
+        'developing and maintaining the front-end of multiple cloud backup customer facing, ' .
+        'marketing focused websites, including the following 3 (of 6) websites;'
+      ),
+      UnorderedList::create()->addItems(
+        [
+          'MyPcBackup.com',
+          'JustCloud.com',
+          'ZipCloud.com',
+        ]
       ),
       Paragraph::create(
         'Each of the 6 brands also had their own themed customer control panel for file management, ' .

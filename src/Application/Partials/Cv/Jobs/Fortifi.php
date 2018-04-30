@@ -2,6 +2,7 @@
 namespace App\Application\Partials\Cv\Jobs;
 
 use Packaged\Glimpse\Core\HtmlTag;
+use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 
 class Fortifi extends AbstractCvJobItem
@@ -27,10 +28,24 @@ class Fortifi extends AbstractCvJobItem
    */
   protected function _description()
   {
+    $companyWebsite = Link::create("http://fortifi.io", "company website");
+    $companyWebsite->setTarget();
+
+    $mdl = Link::create("https://getmdl.io", 'MDL framework');
+
     return [
       Paragraph::create(
-        'Front-end focused PHP developer, working with both PHP, HTML, CSS and JS to create the UI ' .
-        'for an all encompassing billing, affiliate, support, CRM and email messaging service.'
+        'Front-end focused PHP developer, working with PHP, HTML, CSS and JS to create the UI ' .
+        'for an all encompassing marketing, CRM, support, billing and email service.'
+      ),
+      Paragraph::create(
+        [
+          "I also created the ",
+          $companyWebsite,
+          " using the ",
+          $mdl,
+          ", which is based on Google Material."
+        ]
       ),
     ];
   }
