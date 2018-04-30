@@ -10,7 +10,10 @@ use App\Application\Partials\Cv\Jobs\One2create;
 use App\Application\Partials\Cv\Jobs\Seemly;
 use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
+use Fortifi\FontAwesome\FaIcon;
+use Packaged\Glimpse\Elements\LineBreak;
 use Packaged\Glimpse\Tags\Div;
+use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Lists\ListItem;
 use Packaged\Glimpse\Tags\Lists\UnorderedList;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
@@ -23,6 +26,106 @@ class CvPage extends AbstractContainerPage
 {
   protected $_name = 'Chris Sparshott';
   protected $_jobTitle = 'PHP Web Developer / Frontend Developer';
+  protected $_email = 'chris@seemly.co.uk';
+  protected $_phone = '07572 460 634';
+  protected $_linkedIn = 'https://www.linkedin.com/in/chris-sparshott';
+  protected $_github = 'https://github.com/seemly';
+
+  /**
+   * @param $str
+   *
+   * @return mixed
+   */
+  protected function _cleanUrl($str)
+  {
+    return str_replace(['http://', 'https://'], '', $str);
+  }
+
+  /**
+   * @param string      $url
+   * @param string      $content
+   * @param string|null $tooltip
+   *
+   * @return Link
+   */
+  protected function _createContactLink($url, $content, $tooltip = null)
+  {
+    $link = Link::create($url, $content);
+    $link->setTarget();
+    $link->addClass(BS::ML_1);
+
+    if(is_string($tooltip))
+    {
+      $link->setAttribute('title', $tooltip);
+      $link->setAttribute('data-toggle', 'tooltip');
+    }
+
+    return $link;
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getEmail()
+  {
+    return $this->_createContactLink(
+      "mailto:{$this->_email}",
+      $this->_email
+    )->addClass('email');
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getPhone()
+  {
+    return $this->_createContactLink(
+      "tel:{$this->_phone}",
+      $this->_phone
+    )->addClass('phone');
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getLinkedIn()
+  {
+    return $this->_createContactLink(
+      $this->_linkedIn,
+      $this->_cleanUrl($this->_linkedIn),
+      'LinkedIn Profile'
+    )->addClass('linkedin');
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getGithub()
+  {
+    $icon = FaIcon::create(FaIcon::GITHUB);
+
+    return $this->_createContactLink(
+      $this->_github,
+      $this->_cleanUrl($this->_github),
+      'Github Profile'
+    )->addClass('github');
+  }
+
+  /**
+   * @return array
+   */
+  protected function _contactDetails()
+  {
+    return [
+      $this->_getPhone(),
+      LineBreak::create(),
+      $this->_getEmail(),
+      LineBreak::create(),
+      $this->_getLinkedIn(),
+      LineBreak::create(),
+      $this->_getGithub(),
+    ];
+  }
 
   /**
    * @return Div
@@ -36,8 +139,10 @@ class CvPage extends AbstractContainerPage
             HeadingOne::create($this->_name),
             Paragraph::create($this->_jobTitle)->addClass(BS::FONT_ITALIC),
           ]
-        )->addClass(BS::COL_MD_8),
-        Div::create()->addClass(BS::COL_MD_4),
+        )->addClass(BS::COL_MD_7),
+        Div::create(
+          $this->_contactDetails()
+        )->addClass(BS::COL_MD_5, BS::TEXT_RIGHT),
       ]
     )->addClass(BS::ROW, 'intro');
   }
@@ -111,16 +216,11 @@ class CvPage extends AbstractContainerPage
   protected function _getTechnicalSection()
   {
     $items = [
-      'XHTML',
-      'CSS',
-      'Javascript',
-      'jQuery',
-      'PHP',
-      'MySQL',
+      'HTML / CSS',
+      'Javascript / jQuery',
+      'PHP / MySQL',
       'GIT',
       'Photoshop',
-      'Mac OS',
-      'Windows OS',
     ];
 
     $lists = Div::create()->addClass(BS::ROW);
@@ -171,6 +271,32 @@ class CvPage extends AbstractContainerPage
   /**
    * @return Div
    */
+  protected function _getInterestsSection()
+  {
+    return $this->_section(
+      'Interests',
+      [
+        UnorderedList::create()->addItems(
+          [
+            'I am a keen runner, and have been since Summer 2016. ' .
+            'In December of 2017 I ran my first marathon in Portsmouth.',
+
+            'As a member of my local running club - Gosport Road Runners - ' .
+            'in March 2018 I created a club mascot called \'Hugh\' using Adobe Illustrator. ' .
+            'It is currently going through the process of member introduction, ready for club attire and media usage.',
+
+            'I genuinely enjoy learning new skills, so I subscribe to Lynda.com ' .
+            'and study many skills related to my industry including; JS, PHP, ' .
+            'Online Marketing and Illustrator.',
+          ]
+        ),
+      ]
+    );
+  }
+
+  /**
+   * @return Div
+   */
   protected function _getContent()
   {
     return Div::create(
@@ -181,6 +307,7 @@ class CvPage extends AbstractContainerPage
         $this->_getTechnicalSection(),
         $this->_getExperienceSection(),
         $this->_getEducationSection(),
+        $this->_getInterestsSection(),
       ]
     )->addClass(BS::P_5, BS::MX_3);
   }
