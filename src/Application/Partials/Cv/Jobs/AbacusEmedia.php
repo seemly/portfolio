@@ -2,6 +2,7 @@
 namespace App\Application\Partials\Cv\Jobs;
 
 use Packaged\Glimpse\Core\HtmlTag;
+use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 
 class AbacusEmedia extends AbstractCvJobItem
@@ -27,6 +28,9 @@ class AbacusEmedia extends AbstractCvJobItem
    */
   protected function _description()
   {
+    $companyWebsite = Link::create('https://www.abacusemedia.com/', 'company website');
+    $companyWebsite->setTarget();
+
     return [
       Paragraph::create(
         'I was employed as a member of the frontend development team, ' .
@@ -34,8 +38,12 @@ class AbacusEmedia extends AbstractCvJobItem
         'in-house JS plugins to B2B media publishing Saas platform; WebVision.'
       ),
       Paragraph::create(
-        'During my time working at Abacus e-Media using the proprietary in-house system (WebVision), ' .
-        'I had the honour of templating the company website for the next stage of the companies marketing phase.'
+        [
+          'During my time working at Abacus e-Media using the proprietary in-house system (WebVision), ' .
+          'I had the honour of templating the ',
+          $companyWebsite,
+          ' for the promotion and marketing phase.'
+        ]
       ),
     ];
   }

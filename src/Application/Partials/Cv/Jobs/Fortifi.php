@@ -32,6 +32,7 @@ class Fortifi extends AbstractCvJobItem
     $companyWebsite->setTarget();
 
     $mdl = Link::create("https://getmdl.io", 'MDL framework');
+    $mdl->setTarget();
 
     return [
       Paragraph::create(
