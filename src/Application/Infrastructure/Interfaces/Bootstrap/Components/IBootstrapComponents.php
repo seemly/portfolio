@@ -1,6 +1,7 @@
 <?php
 namespace App\Application\Infrastructure\Interfaces\Bootstrap\Components;
 
-interface IBootstrapComponents extends IBootstrapListGroup
+interface IBootstrapComponents extends IBootstrapListGroup,
+                                       IBootstrapButtons
 {
 }
