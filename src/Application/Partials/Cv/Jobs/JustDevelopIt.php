@@ -30,20 +30,16 @@ class JustDevelopIt extends AbstractCvJobItem
   {
     return [
       Paragraph::create(
-        'I was the sole front-end developer tasked with developing and maintaining the ' .
-        'front-end of customer facing, marketing focused websites, with unique themes per brand.'
+        'A solo frontend developer building and maintaining the ' .
+        'customer facing, marketing focused websites, with unique themes per brand.'
       ),
       Paragraph::create(
-        'Each brand also had their own customer control panel for file management, ' .
+        'Each brand had their own customer control panel for file management, ' .
         'built upon the Bootstrap framework providing a responsive, cross-platform, cross-browser UI.'
       ),
       Paragraph::create(
-        'A customer support suite was also developed with reusable components, ' .
+        'A support suite was also developed per brand, with reusable components, ' .
         'allowing the development team to build pages as required in a modular fashion.'
-      ),
-      Paragraph::create(
-        'I also developed and maintained 5+ other websites that are owned ' .
-        'and run by the JDI parent company.'
       ),
     ];
   }

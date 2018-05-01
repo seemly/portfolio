@@ -210,7 +210,15 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getProfileSection()
   {
-    $content = 'Progressively evolve cross-platform ideas before impactful infomediaries. Energistically visualize tactical initiatives before cross-media catalysts for change.';
+    $content = [
+      Paragraph::create(
+        [
+          'A highly competent and attentive frontend focused PHP developer, with over 10 years experience.',
+          LineBreak::create(),
+          'I am seeking a new challenge that will help build upon my already well rounded skill-set.',
+        ]
+      ),
+    ];
 
     return $this->_section('Profile', $content);
   }

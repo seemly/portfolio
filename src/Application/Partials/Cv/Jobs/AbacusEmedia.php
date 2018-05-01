@@ -33,13 +33,12 @@ class AbacusEmedia extends AbstractCvJobItem
 
     return [
       Paragraph::create(
-        'As part of the frontend development team, building and maintaining customer ' .
-        'websites using the HTML, CSS, and in-house JS plugins of the proprietary ' .
-        'B2B media publishing Saas platform; WebVision.'
+        'Building and maintaining customer websites using the HTML, CSS, and in-house ' .
+        'JS plugins of the proprietary B2B media publishing SaaS platform; WebVision.'
       ),
       Paragraph::create(
         [
-          'Using WebVision, I templated the responsive, cross platform and cross browser compliant ',
+          'Using WebVision, I built the responsive, cross platform and cross browser compliant ',
           $companyWebsite,
           '.'
         ]
