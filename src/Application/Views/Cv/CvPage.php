@@ -215,7 +215,7 @@ class CvPage extends AbstractContainerPage
         [
           'A highly competent and attentive frontend focused PHP developer, with over 10 years experience.',
           LineBreak::create(),
-          'I am seeking a new challenge that will help build upon my already well rounded skill-set.',
+          'I am seeking a new challenge that will help build upon my already strong and well rounded skill-set.',
         ]
       ),
     ];
