@@ -138,13 +138,27 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getDownload()
   {
+    $link = Link::create(Paths::CV_DOWNLOAD, 'Download CV');
+    $link->addClass(BS::BTN_PRIMARY, BS::BTN_SM);
+    return Div::create($link)->addClass(BS::MB_2);
+  }
+
+  /**
+   * @return Div
+   */
+  protected function _getIntroRight()
+  {
     return Div::create(
       [
-        Link::create(Paths::CV_DOWNLOAD, 'Download')->addClass(
-          BS::BTN_SECONDARY
-        ),
+        $this->_getDownload(),
+        $this->_contactDetails(),
       ]
-    )->addClass(BS::MB_2);
+    )->addClass(
+      BS::COL_LG_5,
+      BS::TEXT_LG_RIGHT,
+      BS::DISPLAY_NONE,
+      BS::DISPLAY_BLOCK_LG
+    );
   }
 
   /**
@@ -166,13 +180,8 @@ class CvPage extends AbstractContainerPage
               ]
             )->addClass(BS::FONT_ITALIC),
           ]
-        )->addClass(BS::COL_MD_7),
-        Div::create(
-          [
-            $this->_getDownload(),
-            $this->_contactDetails(),
-          ]
-        )->addClass(BS::COL_MD_5, BS::TEXT_RIGHT),
+        )->addClass(BS::COL_LG_7),
+        $this->_getIntroRight(),
       ]
     )->addClass(BS::ROW, BS::ALIGN_ITEMS_END, 'intro');
   }
@@ -340,6 +349,7 @@ class CvPage extends AbstractContainerPage
             $this->_getTwitter(),
           ]
         ),
+        $this->_getDownload(),
       ]
     );
   }
