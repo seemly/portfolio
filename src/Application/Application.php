@@ -3,6 +3,7 @@ namespace App\Application;
 
 use App\Application\Controllers\CvController;
 use Cubex\Kernel\ApplicationKernel;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class Application extends ApplicationKernel
 {
@@ -15,6 +16,6 @@ class Application extends ApplicationKernel
 
   public function defaultAction()
   {
-    return 'Need to sort defaultAction in Application';
+    return RedirectResponse::create('/cv', 301);
   }
 }
