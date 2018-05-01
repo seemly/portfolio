@@ -2,15 +2,15 @@
 namespace App\Application\Views\Cv;
 
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
+use App\Application\Infrastructure\Meta\Paths;
+use App\Application\Infrastructure\Meta\Personal;
 use App\Application\Partials\Cv\Jobs\AbacusEmedia;
 use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
 use App\Application\Partials\Cv\Jobs\One2create;
 use App\Application\Partials\Cv\Jobs\Seemly;
-use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
-use Fortifi\FontAwesome\FaIcon;
 use Packaged\Glimpse\Elements\LineBreak;
 use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Link;
@@ -24,13 +24,6 @@ use Packaged\Helpers\Strings;
 
 class CvPage extends AbstractContainerPage
 {
-  protected $_name = 'Chris Sparshott';
-  protected $_jobTitle = 'PHP Web Developer / Frontend Developer';
-  protected $_email = 'chris@seemly.co.uk';
-  protected $_phone = '07572 460 634';
-  protected $_linkedIn = 'https://www.linkedin.com/in/chris-sparshott';
-  protected $_github = 'https://github.com/seemly';
-
   /**
    * @param $str
    *
@@ -52,7 +45,6 @@ class CvPage extends AbstractContainerPage
   {
     $link = Link::create($url, $content);
     $link->setTarget();
-    $link->addClass(BS::ML_1);
 
     if(is_string($tooltip))
     {
@@ -68,10 +60,8 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getEmail()
   {
-    return $this->_createContactLink(
-      "mailto:{$this->_email}",
-      $this->_email
-    )->addClass('email');
+    $email = Personal::EMAIL;
+    return $this->_createContactLink("mailto:{$email}", $email);
   }
 
   /**
@@ -79,10 +69,8 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getPhone()
   {
-    return $this->_createContactLink(
-      "tel:{$this->_phone}",
-      $this->_phone
-    )->addClass('phone');
+    $phone = Personal::MOBILE;
+    return $this->_createContactLink("tel:{$phone}", $phone);
   }
 
   /**
@@ -91,10 +79,10 @@ class CvPage extends AbstractContainerPage
   protected function _getLinkedIn()
   {
     return $this->_createContactLink(
-      $this->_linkedIn,
-      $this->_cleanUrl($this->_linkedIn),
+      Personal::LINKEDIN,
+      $this->_cleanUrl(Personal::LINKEDIN),
       'LinkedIn Profile'
-    )->addClass('linkedin');
+    );
   }
 
   /**
@@ -102,13 +90,35 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getGithub()
   {
-    $icon = FaIcon::create(FaIcon::GITHUB);
-
     return $this->_createContactLink(
-      $this->_github,
-      $this->_cleanUrl($this->_github),
+      Personal::GITHUB,
+      $this->_cleanUrl(Personal::GITHUB),
       'Github Profile'
-    )->addClass('github');
+    );
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getTwitter()
+  {
+    return $this->_createContactLink(
+      Personal::TWITTER,
+      $this->_cleanUrl(Personal::TWITTER),
+      'Twitter Profile'
+    );
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getPortfolio()
+  {
+    return $this->_createContactLink(
+      Personal::PORTFOLIO,
+      $this->_cleanUrl(Personal::PORTFOLIO),
+      'Personal website / portfolio'
+    );
   }
 
   /**
@@ -117,14 +127,24 @@ class CvPage extends AbstractContainerPage
   protected function _contactDetails()
   {
     return [
-      $this->_getPhone(),
-      LineBreak::create(),
       $this->_getEmail(),
       LineBreak::create(),
-      $this->_getLinkedIn(),
-      LineBreak::create(),
-      $this->_getGithub(),
+      $this->_getPhone(),
     ];
+  }
+
+  /**
+   * @return Div
+   */
+  protected function _getDownload()
+  {
+    return Div::create(
+      [
+        Link::create(Paths::CV_DOWNLOAD, 'Download')->addClass(
+          BS::BTN_SECONDARY
+        ),
+      ]
+    )->addClass(BS::MB_2);
   }
 
   /**
@@ -136,15 +156,25 @@ class CvPage extends AbstractContainerPage
       [
         Div::create(
           [
-            HeadingOne::create($this->_name),
-            Paragraph::create($this->_jobTitle)->addClass(BS::FONT_ITALIC),
+            HeadingOne::create(Personal::NAME),
+            Div::create(Personal::JOB_TITLE)->addClass(BS::FONT_ITALIC),
+            Div::create(
+              [
+                $this->_getGithub(),
+                ' / ',
+                $this->_getPortfolio(),
+              ]
+            )->addClass(BS::FONT_ITALIC),
           ]
         )->addClass(BS::COL_MD_7),
         Div::create(
-          $this->_contactDetails()
+          [
+            $this->_getDownload(),
+            $this->_contactDetails(),
+          ]
         )->addClass(BS::COL_MD_5, BS::TEXT_RIGHT),
       ]
-    )->addClass(BS::ROW, 'intro');
+    )->addClass(BS::ROW, BS::ALIGN_ITEMS_END, 'intro');
   }
 
   /**
@@ -255,7 +285,6 @@ class CvPage extends AbstractContainerPage
         JustDevelopIt::i(),
         MadProductions::i(),
         One2create::i(),
-        VandF::i(),
       ]
     );
   }
@@ -278,16 +307,37 @@ class CvPage extends AbstractContainerPage
       [
         UnorderedList::create()->addItems(
           [
-            'I am a keen runner, and have been since Summer 2016. ' .
+            'Since Summer 2016 I have been a keen runner. ' .
             'In December of 2017 I ran my first marathon in Portsmouth.',
 
             'As a member of my local running club - Gosport Road Runners - ' .
             'in March 2018 I created a club mascot called \'Hugh\' using Adobe Illustrator. ' .
-            'It is currently going through the process of member introduction, ready for club attire and media usage.',
+            'It is currently going through the process of member introduction, ' .
+            'ready for printing on club attire and for media use.',
 
             'I genuinely enjoy learning new skills, so I subscribe to Lynda.com ' .
-            'and study many skills related to my industry including; JS, PHP, ' .
+            'and watch video courses related to my industry including; JS, PHP, ' .
             'Online Marketing and Illustrator.',
+          ]
+        ),
+      ]
+    );
+  }
+
+  /**
+   * @return Div
+   */
+  protected function _linksSection()
+  {
+    return $this->_section(
+      'Links',
+      [
+        UnorderedList::create()->addItems(
+          [
+            $this->_getPortfolio(),
+            $this->_getGithub(),
+            $this->_getLinkedIn(),
+            $this->_getTwitter(),
           ]
         ),
       ]
@@ -303,11 +353,12 @@ class CvPage extends AbstractContainerPage
       [
         $this->_intro(),
         $this->_getProfileSection(),
-        $this->_getSkillsSection(),
+        //        $this->_getSkillsSection(),
         $this->_getTechnicalSection(),
         $this->_getExperienceSection(),
-        $this->_getEducationSection(),
+        //        $this->_getEducationSection(),
         $this->_getInterestsSection(),
+        $this->_linksSection(),
       ]
     )->addClass(BS::P_5, BS::MX_3);
   }
