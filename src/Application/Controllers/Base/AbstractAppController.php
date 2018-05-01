@@ -57,6 +57,15 @@ class AbstractAppController extends BaseAbstractAppController
   }
 
   /**
+   * @return $this
+   */
+  public function removeGoogleAnalytics()
+  {
+    $this->layout()->setData('googleAnalytics', '');
+    return $this;
+  }
+
+  /**
    * @param string $name
    * @param string $content
    *

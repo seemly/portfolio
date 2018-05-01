@@ -1,5 +1,8 @@
 <?php
 use Packaged\Dispatch\AssetManager;
+use App\Application\Infrastructure\Components\Analytics\GoogleAnalytics;
+use App\Application\Infrastructure\Meta\Personal;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +14,7 @@ use Packaged\Dispatch\AssetManager;
   <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title><?= $this->getData('title', 'Chris Sparshott - Portfolio'); ?></title>
+  <title><?= $this->getData('title', Personal::NAME . ' - Portfolio'); ?></title>
   <?= $this->getData('metaTags'); ?>
 
   <!-- global CSS assets and Favicon -->
@@ -21,6 +24,8 @@ use Packaged\Dispatch\AssetManager;
 </head>
 
 <body>
+<?= $this->getData('googleAnalytics', GoogleAnalytics::i()); ?>
+
 <?= $this->content(); ?>
 
 <!-- global JS -->
