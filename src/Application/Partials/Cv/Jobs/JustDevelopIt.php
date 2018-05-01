@@ -30,7 +30,7 @@ class JustDevelopIt extends AbstractCvJobItem
   {
     return [
       Paragraph::create(
-        'A solo frontend developer building and maintaining the ' .
+        'A solo frontend developer building and maintaining 6 ' .
         'customer facing, marketing focused websites, with unique themes per brand.'
       ),
       Paragraph::create(
