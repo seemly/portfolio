@@ -30,36 +30,20 @@ class JustDevelopIt extends AbstractCvJobItem
   {
     return [
       Paragraph::create(
-        'During my employment at JDI, I was the sole front-end developer tasked with ' .
-        'developing and maintaining the front-end of multiple cloud backup customer facing, ' .
-        'marketing focused websites, including the following 3 (of 6) websites;'
-      ),
-      UnorderedList::create()->addItems(
-        [
-          'MyPcBackup.com',
-          'JustCloud.com',
-          'ZipCloud.com',
-        ]
+        'I was the sole front-end developer tasked with developing and maintaining the ' .
+        'front-end of customer facing, marketing focused websites, with unique themes per brand.'
       ),
       Paragraph::create(
-        'Each of the 6 brands also had their own themed customer control panel for file management, ' .
-        'built upon the Twitter Bootstrap CSS framework providing a responsive, cross-platform, cross-browser UI.'
+        'Each brand also had their own customer control panel for file management, ' .
+        'built upon the Bootstrap framework providing a responsive, cross-platform, cross-browser UI.'
       ),
       Paragraph::create(
-        'Along side the control panels, there was also the requirement to create a customer support suite ' .
-        'which was very much the majority of my work, creating global components and generic styles - ' .
+        'A customer support suite was also developed with reusable components, ' .
         'allowing the development team to build pages as required in a modular fashion.'
       ),
       Paragraph::create(
-        'I also developed and maintained the following websites that are owned and run by the JDI parent company;'
-      ),
-      UnorderedList::create()->addItems(
-        [
-          'skylarkcountryclub.co.uk',
-          'turboyourpc.com',
-          'jdiinvestments.com',
-          'jdidevelopments.com',
-        ]
+        'I also developed and maintained 5+ other websites that are owned ' .
+        'and run by the JDI parent company.'
       ),
     ];
   }

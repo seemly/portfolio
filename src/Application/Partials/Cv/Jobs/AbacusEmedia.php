@@ -33,16 +33,15 @@ class AbacusEmedia extends AbstractCvJobItem
 
     return [
       Paragraph::create(
-        'I was employed as a member of the frontend development team, ' .
-        'tasked with both building and maintaining the HTML, CSS and implementation of ' .
-        'in-house JS plugins to B2B media publishing Saas platform; WebVision.'
+        'As part of the frontend development team, building and maintaining customer ' .
+        'websites using the HTML, CSS, and in-house JS plugins of the proprietary ' .
+        'B2B media publishing Saas platform; WebVision.'
       ),
       Paragraph::create(
         [
-          'During my time working at Abacus e-Media using the proprietary in-house system (WebVision), ' .
-          'I had the honour of templating the ',
+          'Using WebVision, I templated the responsive, cross platform and cross browser compliant ',
           $companyWebsite,
-          ' for the promotion and marketing phase.'
+          '.'
         ]
       ),
     ];

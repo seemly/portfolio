@@ -44,13 +44,14 @@ class Seemly extends AbstractCvJobItem
           [
             'What started out as a website portfolio and somewhat of a coding playground, ',
             $seemly,
-            ' has turned into the home of 13,000+ MySQL rows containing ' .
-            'historical UK domain name sales since 2006. ' .
-            'The records are searchable by keyword, and many filters are provided to refine your search.',
+            ' has turned into the home of 13,000+ MySQL rows containing historical ' .
+            'UK domain name sales since 2006. The records are searchable by keyword, ' .
+            'and many filters are provided to refine search results.',
           ]
         ),
         Paragraph::create(
-          'Harvesting domain sales records is updated on a mostly daily basis, and is a fully automated process using IFTTT applets and CRON jobs.'
+          'Harvesting domain sales records is updated on a mostly daily basis, ' .
+          'and is a fully automated process using IFTTT applets and CRON jobs.'
         ),
         Paragraph::create(
           [
@@ -72,7 +73,7 @@ class Seemly extends AbstractCvJobItem
         ),
         Paragraph::create(
           [
-            'The project also contains UK specific ',
+            'The project also contains a UK specific ',
             $bulkWhois,
             ' checker with CSV export.'
           ]
