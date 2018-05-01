@@ -1,6 +1,7 @@
 <?php
 namespace App\Application\Views\BaseAbstractPages;
 
+use App\Application\Infrastructure\Components\Analytics\GoogleAnalytics;
 use App\Application\Infrastructure\Enums\Bootstrap\BootstrapLayout;
 use Cubex\View\ViewModel;
 use Packaged\Glimpse\Tags\Div;
@@ -22,7 +23,7 @@ abstract class AbstractPage extends ViewModel
   {
     if(!$this->_removeAnalytics)
     {
-      $output[] = 'google analytics';
+      $output[] = GoogleAnalytics::i();
     }
 
     $output[] = Div::create(
