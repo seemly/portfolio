@@ -178,7 +178,7 @@ class CvPage extends AbstractContainerPage
                 ' / ',
                 $this->_getPortfolio(),
               ]
-            )->addClass(BS::FONT_ITALIC),
+            ),
           ]
         )->addClass(BS::COL_LG_7),
         $this->_getIntroRight(),
