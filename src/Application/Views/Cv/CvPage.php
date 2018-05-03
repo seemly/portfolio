@@ -139,7 +139,7 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getDownload()
   {
-    $link = Link::create(Paths::CV_DOWNLOAD, 'Download CV');
+    $link = Link::create(Paths::CV_DOWNLOAD, 'Download CV')->setTarget();
     $link->addClass(BS::BTN_PRIMARY, BS::BTN_SM);
     return Div::create($link)->addClass(BS::MB_2);
   }
@@ -315,14 +315,6 @@ class CvPage extends AbstractContainerPage
   /**
    * @return Div
    */
-  protected function _getEducationSection()
-  {
-    return $this->_section('Education', 'blah');
-  }
-
-  /**
-   * @return Div
-   */
   protected function _getInterestsSection()
   {
     return $this->_section(
@@ -377,10 +369,8 @@ class CvPage extends AbstractContainerPage
       [
         $this->_intro(),
         $this->_getProfileSection(),
-        //        $this->_getSkillsSection(),
         $this->_getTechnicalSection(),
         $this->_getExperienceSection(),
-        //        $this->_getEducationSection(),
         $this->_getInterestsSection(),
         $this->_linksSection(),
       ]

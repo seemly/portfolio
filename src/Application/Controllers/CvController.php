@@ -5,13 +5,16 @@ use App\Application\Controllers\Base\AbstractAppController;
 use App\Application\Infrastructure\Meta\Personal;
 use App\Application\Views\Cv\CvPage;
 use Packaged\Dispatch\AssetManager;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class CvController extends AbstractAppController
 {
 
   public function getRoutes()
   {
-    return [];
+    return [
+      'download' => 'downloadCv'
+    ];
   }
 
   /**
@@ -25,6 +28,19 @@ class CvController extends AbstractAppController
     $am->requireCss('css/cv');
 
     return new CvPage();
+  }
+
+  /**
+   * @return RedirectResponse
+   */
+  public function downloadCv()
+  {
+    $filename = 'chris-sparshott-cv.pdf';
+    $path = 'files/cv/' . $filename;
+    $am = AssetManager::assetType();
+    $path = $am->getResourceUri($path);
+
+    return RedirectResponse::create($path);
   }
 
 }
