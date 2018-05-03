@@ -37,15 +37,15 @@ class Fortifi extends AbstractCvJobItem
 
     return [
       Paragraph::create(
-        'Front-end focused PHP developer, creating reusable components and pages using PHP, HTML, CSS and JS ' .
+        'Front-end focused PHP developer, creating reusable components and pages using PHP, HTML, CSS and jQuery ' .
         'for an all encompassing cloud based business solution, including: ' .
-        'marketing, CRM, support, billing and emailing services.'
+        'marketing, CRM, support, billing and email services.'
       ),
       Paragraph::create(
         [
           "With PSD's provided, I also built the ",
           $companyWebsite,
-          " based on Google Material implementation from ",
+          " based on Google Material framework, ",
           $mdl,
           "."
         ]
