@@ -35,12 +35,11 @@ class CvController extends AbstractAppController
    */
   public function downloadCv()
   {
-    $filename = 'chris-sparshott-cv.pdf';
+    $filename = 'cv-chris-sparshott-php-frontend-developer.pdf';
     $path = 'files/cv/' . $filename;
     $am = AssetManager::assetType();
-    $path = $am->getResourceUri($path);
 
-    return RedirectResponse::create($path);
+    return RedirectResponse::create($am->getResourceUri($path));
   }
 
 }
