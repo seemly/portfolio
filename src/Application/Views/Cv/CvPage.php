@@ -10,6 +10,7 @@ use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
 use App\Application\Partials\Cv\Jobs\One2create;
 use App\Application\Partials\Cv\Jobs\Seemly;
+use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Packaged\Glimpse\Elements\LineBreak;
 use Packaged\Glimpse\Tags\Div;
@@ -212,10 +213,14 @@ class CvPage extends AbstractContainerPage
   {
     $content = [
       Paragraph::create(
+        'A highly competent and attentive frontend focused PHP developer, with over 10 years experience.'
+      ),
+      Paragraph::create(
         [
-          'A highly competent and attentive frontend focused PHP developer, with over 10 years experience.',
-          LineBreak::create(),
-          'I am seeking a new challenge that will help build upon my strong and well rounded skill-set.',
+          'I have always sought to push myself and learn new skills, ' .
+          'and I am now looking for a new opportunity to continue this trend. ',
+          'As a frontend focused PHP developer, I am looking to get more ' .
+          'involved with backend development, database design & management.'
         ]
       ),
     ];
@@ -302,6 +307,7 @@ class CvPage extends AbstractContainerPage
         JustDevelopIt::i(),
         MadProductions::i(),
         One2create::i(),
+        VandF::i(),
       ]
     );
   }
