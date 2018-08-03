@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Application\Infrastructure\Meta;
 
 class Personal
@@ -9,6 +10,7 @@ class Personal
   const MOBILE = '07572 460 634';
   const EMAIL = 'chris@seemly.co.uk';
 
+  const DOMAIN_PRICES = 'http://seemly.co.uk/domains/prices';
   const PORTFOLIO = 'http://sparshott.co.uk';
   const TWITTER = 'https://twitter.com/seemly';
   const GITHUB = 'https://github.com/seemly';

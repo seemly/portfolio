@@ -71,6 +71,8 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getPhone()
   {
+    // todo - remember to reinstate this when required.
+    return null;
     $phone = Personal::MOBILE;
     return $this->_createContactLink("tel:{$phone}", $phone);
   }
@@ -120,6 +122,18 @@ class CvPage extends AbstractContainerPage
       Personal::PORTFOLIO,
       $this->_cleanUrl(Personal::PORTFOLIO),
       'Personal website / portfolio'
+    );
+  }
+
+  /**
+   * @return Link
+   */
+  protected function _getDomainPrices()
+  {
+    return $this->_createContactLink(
+      Personal::DOMAIN_PRICES,
+      $this->_cleanUrl(Personal::DOMAIN_PRICES),
+      'Historic UK Domain Sale Prices (personal project)'
     );
   }
 
@@ -352,6 +366,7 @@ class CvPage extends AbstractContainerPage
       [
         UnorderedList::create()->addItems(
           [
+            $this->_getDomainPrices(),
             $this->_getPortfolio(),
             $this->_getGithub(),
             $this->_getLinkedIn(),
