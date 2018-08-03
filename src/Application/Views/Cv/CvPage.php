@@ -10,6 +10,7 @@ use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
 use App\Application\Partials\Cv\Jobs\One2create;
 use App\Application\Partials\Cv\Jobs\Seemly;
+use App\Application\Partials\Cv\Jobs\TwentyOneSix;
 use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
 use Packaged\Glimpse\Elements\LineBreak;
@@ -302,6 +303,7 @@ class CvPage extends AbstractContainerPage
     return $this->_section(
       'Experience',
       [
+        TwentyOneSix::i(),
         Fortifi::i(),
         Seemly::i(),
         AbacusEmedia::i(),
