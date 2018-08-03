@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Application\Views\Cv;
 
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
+use App\Application\Infrastructure\Interfaces\Ui\AlertType;
 use App\Application\Infrastructure\Meta\Paths;
 use App\Application\Infrastructure\Meta\Personal;
+use App\Application\Infrastructure\Ui\Bootstrap\Alert;
 use App\Application\Partials\Cv\Jobs\AbacusEmedia;
 use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
@@ -18,6 +21,7 @@ use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Lists\ListItem;
 use Packaged\Glimpse\Tags\Lists\UnorderedList;
+use Packaged\Glimpse\Tags\Text\BoldText;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
 use Packaged\Glimpse\Tags\Text\HeadingThree;
 use Packaged\Glimpse\Tags\Text\HeadingTwo;
@@ -37,8 +41,8 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @param string      $url
-   * @param string      $content
+   * @param string $url
+   * @param string $content
    * @param string|null $tooltip
    *
    * @return Link
@@ -236,7 +240,7 @@ class CvPage extends AbstractContainerPage
           'and I am now looking for a new opportunity and a new challenge. ' .
           'As a frontend developer that has transitioned into frontend PHP development, ' .
           'I am looking to get more involved with backend development, ' .
-          'database design & management.'
+          'database design & management.',
         ]
       ),
     ];
@@ -378,6 +382,18 @@ class CvPage extends AbstractContainerPage
     );
   }
 
+  protected function _notSeeking()
+  {
+    return Alert::i(
+      [
+        'I am ',
+        BoldText::create('not'),
+        ' currently seeking any new opportunities.'
+      ],
+      AlertType::ALERT_DANGER
+    )->render();
+  }
+
   /**
    * @return Div
    */
@@ -385,6 +401,7 @@ class CvPage extends AbstractContainerPage
   {
     return Div::create(
       [
+        $this->_notSeeking(),
         $this->_intro(),
         $this->_getProfileSection(),
         $this->_getTechnicalSection(),
