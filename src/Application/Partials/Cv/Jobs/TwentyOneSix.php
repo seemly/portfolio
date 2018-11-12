@@ -3,6 +3,7 @@
 namespace App\Application\Partials\Cv\Jobs;
 
 use Packaged\Glimpse\Core\HtmlTag;
+use Packaged\Glimpse\Elements\LineBreak;
 use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Lists\UnorderedList;
 use Packaged\Glimpse\Tags\Text\BoldText;
@@ -121,8 +122,11 @@ class TwentyOneSix extends AbstractCvJobItem
 
     return [
       $this->_leukaemiaBusters(),
+      LineBreak::create(),
       $this->_htmlEmailDevelopment(),
+      LineBreak::create(),
       $this->_animatedBanners(),
+      LineBreak::create(),
       Paragraph::create(BoldText::create('Additional Tasks;')),
       $projects,
     ];
