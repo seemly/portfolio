@@ -288,6 +288,8 @@ class CvPage extends AbstractContainerPage
   {
     $items = [
       'HTML / CSS',
+      'HTML Emails',
+      'HTML5 Animated Banners',
       'Javascript / jQuery',
       'PHP / MySQL',
       'GIT',
