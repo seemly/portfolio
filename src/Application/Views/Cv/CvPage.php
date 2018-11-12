@@ -41,8 +41,8 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @param string $url
-   * @param string $content
+   * @param string      $url
+   * @param string      $content
    * @param string|null $tooltip
    *
    * @return Link
@@ -236,11 +236,7 @@ class CvPage extends AbstractContainerPage
       ),
       Paragraph::create(
         [
-          'I have always sought to push myself and learn new skills, ' .
-          'and I am now looking for a new opportunity and a new challenge. ' .
-          'As a frontend developer that has transitioned into frontend PHP development, ' .
-          'I am looking to get more involved with backend development, ' .
-          'database design & management.',
+          'I have always sought to push myself and learn new skills, ' . 'and I am now looking for a new opportunity and a new challenge. ' . 'As a frontend developer that has transitioned into frontend PHP development, ' . 'I am looking to get more involved with backend development, ' . 'database design & management.',
         ]
       ),
     ];
@@ -295,7 +291,7 @@ class CvPage extends AbstractContainerPage
       'Photoshop',
     ];
 
-    $lists = Div::create()->addClass(BS::ROW);
+    $lists  = Div::create()->addClass(BS::ROW);
     $chunks = array_chunk($items, ceil(count($items) / 3));
     foreach($chunks as $chunk)
     {
@@ -343,17 +339,11 @@ class CvPage extends AbstractContainerPage
       [
         UnorderedList::create()->addItems(
           [
-            'Since Summer 2016 I have been a keen runner. ' .
-            'In December of 2017 I ran my first marathon in Portsmouth.',
+            'Since Summer 2016 I have been a keen runner. ' . 'In December of 2017 I ran my first marathon in Portsmouth.',
 
-            'As a member of my local running club - Gosport Road Runners - ' .
-            'in March 2018 I created a club mascot called \'Hugh\' using Adobe Illustrator. ' .
-            'It is currently going through the process of member introduction, ' .
-            'ready for printing on club attire and for media use.',
+            'As a member of my local running club - Gosport Road Runners - ' . 'in March 2018 I created a club mascot called \'Hugh\' using Adobe Illustrator. ' . 'It is currently going through the process of member introduction, ' . 'ready for printing on club attire and for media use.',
 
-            'I genuinely enjoy learning new skills, so I subscribe to Lynda.com ' .
-            'and watch video courses related to my industry including; JS, PHP, ' .
-            'Online Marketing and Illustrator.',
+            'I genuinely enjoy learning new skills, so I subscribe to Lynda.com ' . 'and watch video courses related to my industry including; JS, PHP, ' . 'Online Marketing and Illustrator.',
           ]
         ),
       ]
@@ -382,16 +372,44 @@ class CvPage extends AbstractContainerPage
     );
   }
 
-  protected function _notSeeking()
+  /**
+   * @return \Packaged\Glimpse\Core\SafeHtml
+   */
+  protected function _yesNewJob()
+  {
+    return Alert::i(
+      'Yes, I am looking for new opportunities!',
+      AlertType::ALERT_SUCCESS
+    )->render();
+  }
+
+  /**
+   * @return \Packaged\Glimpse\Core\SafeHtml
+   */
+  protected function _noNewJob()
   {
     return Alert::i(
       [
         'I am ',
         BoldText::create('not'),
-        ' currently seeking any new opportunities.'
+        ' currently seeking any new opportunities.',
       ],
       AlertType::ALERT_DANGER
     )->render();
+  }
+
+  /**
+   * @param bool $seekingNewJob
+   *
+   * @return \Packaged\Glimpse\Core\SafeHtml
+   */
+  protected function _seekingNewOpportunities($seekingNewJob = true)
+  {
+    if($seekingNewJob)
+    {
+      return $this->_yesNewJob();
+    }
+    return $this->_noNewJob();
   }
 
   /**
@@ -401,7 +419,7 @@ class CvPage extends AbstractContainerPage
   {
     return Div::create(
       [
-        $this->_notSeeking(),
+        $this->_seekingNewOpportunities(true),
         $this->_intro(),
         $this->_getProfileSection(),
         $this->_getTechnicalSection(),
