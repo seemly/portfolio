@@ -4,6 +4,8 @@ namespace App\Application\Infrastructure\Meta;
 
 class Personal
 {
+  const JOB_SEEKING = true;
+
   const NAME = 'Chris Sparshott';
   const JOB_TITLE = 'PHP Web Developer & Frontend Developer';
 

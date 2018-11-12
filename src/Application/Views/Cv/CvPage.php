@@ -71,14 +71,17 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return Link
+   * @return null|Link
    */
   protected function _getPhone()
   {
-    // todo - remember to reinstate this when required.
+    if(Personal::JOB_SEEKING)
+    {
+      $phone = Personal::MOBILE;
+      return $this->_createContactLink("tel:{$phone}", $phone);
+    }
+
     return null;
-    $phone = Personal::MOBILE;
-    return $this->_createContactLink("tel:{$phone}", $phone);
   }
 
   /**
@@ -399,13 +402,11 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @param bool $seekingNewJob
-   *
    * @return \Packaged\Glimpse\Core\SafeHtml
    */
-  protected function _seekingNewOpportunities($seekingNewJob = true)
+  protected function _seekingNewOpportunities()
   {
-    if($seekingNewJob)
+    if(Personal::JOB_SEEKING)
     {
       return $this->_yesNewJob();
     }
@@ -419,7 +420,7 @@ class CvPage extends AbstractContainerPage
   {
     return Div::create(
       [
-        $this->_seekingNewOpportunities(true),
+        $this->_seekingNewOpportunities(),
         $this->_intro(),
         $this->_getProfileSection(),
         $this->_getTechnicalSection(),
