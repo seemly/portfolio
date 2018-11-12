@@ -24,7 +24,7 @@ class TwentyOneSix extends AbstractCvJobItem
    */
   protected function _jobTitle()
   {
-    return 'Web Developer';
+    return 'Frontend & PHP Web Developer';
   }
 
   /**
