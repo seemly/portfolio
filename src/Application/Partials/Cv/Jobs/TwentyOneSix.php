@@ -32,17 +32,17 @@ class TwentyOneSix extends AbstractCvJobItem
    */
   protected function _leukaemiaBusters()
   {
-    $rareloop         = Link::create('https://rareloop.com', 'RareLoop')->setTarget();
-    $lumberjack       = Link::create('https://github.com/Rareloop/lumberjack', 'Lumberjack')->setTarget();
-    $LeukaemiaBusters = Link::create('http://leukaemiaBusters.org.uk', 'Leukaemia Busters')->setTarget();
-    $astrum           = Link::create('https://github.com/NoDivide/astrum', 'Astrum')->setTarget();
+    $rareloop         = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
+    $lumberjack       = $this->_createOutboundLink('Lumberjack', 'https://github.com/Rareloop/lumberjack');
+    $leukaemiaBusters = $this->_createOutboundLink('Leukaemia Busters', 'http://leukaemiaBusters.org.uk');
+    $astrum           = $this->_createOutboundLink('Astrum', 'https://github.com/NoDivide/astrum');
 
     return [
       HeadingFive::create('Leukaemia Busters'),
       Paragraph::create(
         [
           'Employed as a Frontend focused PHP developer, one of my first tasks at 21six was to re-create the ',
-          $LeukaemiaBusters,
+          $leukaemiaBusters,
           ' charity website (previously built on Joomla) using the fantastic Wordpress framework ',
           $lumberjack,
           ', developed by the team at ',

@@ -4,6 +4,7 @@ namespace App\Application\Partials\Cv\Jobs;
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
 use Packaged\Glimpse\Core\HtmlTag;
 use Packaged\Glimpse\Tags\Div;
+use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Span;
 use Packaged\Glimpse\Tags\Text\HeadingFour;
 use Packaged\Glimpse\Tags\Text\HeadingThree;
@@ -90,6 +91,19 @@ abstract class AbstractCvJobItem
         )->addClass('location', BS::DISPLAY_BLOCK, BS::TEXT_RIGHT),
       ]
     )->addClass('meta');
+  }
+
+  /**
+   * @param string $text
+   * @param string $url
+   *
+   * @return static
+   */
+  protected function _createOutboundLink(string $text, string $url)
+  {
+    $link = Link::create($url, $text);
+    $link->setTarget()->setAttribute('rel', 'nofollow');
+    return $link;
   }
 
   /**

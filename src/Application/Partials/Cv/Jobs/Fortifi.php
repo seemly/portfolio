@@ -3,7 +3,6 @@
 namespace App\Application\Partials\Cv\Jobs;
 
 use Packaged\Glimpse\Core\HtmlTag;
-use Packaged\Glimpse\Tags\Link;
 use Packaged\Glimpse\Tags\Lists\UnorderedList;
 use Packaged\Glimpse\Tags\Text\BoldText;
 use Packaged\Glimpse\Tags\Text\Paragraph;
@@ -31,19 +30,13 @@ class Fortifi extends AbstractCvJobItem
    */
   protected function _description()
   {
-    $companyWebsite = Link::create("http://fortifi.io", "Fortifi website");
-    $companyWebsite->setTarget();
-
-    $mdl = Link::create("https://getmdl.io", 'MDL');
-    $mdl->setTarget();
-
     $projects = UnorderedList::create();
     $projects->addItem(
       [
         "With PSD's provided, I built the ",
-        $companyWebsite,
+        $this->_createOutboundLink('Fortifi website', 'http://fortifi.io'),
         " based on Google Material framework, ",
-        $mdl,
+        $this->_createOutboundLink('MDL', 'https://getmdl.io'),
         ".",
       ]
     );
@@ -52,7 +45,7 @@ class Fortifi extends AbstractCvJobItem
     $projects->addItem(
       [
         'Josh, from ',
-        Link::create('http://www.analysispro.com', 'AnalysisPro')->setTarget(),
+        $this->_createOutboundLink('AnalysisPro', 'http://www.analysispro.com'),
         ', required a new website to be built on WordPress.',
         ' I developed the theme from designs that were created in-house at Fortifi,' .
         ' and the website was launched in June, 2018.',
@@ -63,7 +56,7 @@ class Fortifi extends AbstractCvJobItem
     $projects->addItem(
       [
         'Mark, from ',
-        Link::create('http://www.enjoyfitnessstudio.co.uk', 'Enjoy Fitness')->setTarget(),
+        $this->_createOutboundLink('Enjoy Fitness', 'http://www.enjoyfitnessstudio.co.uk'),
         ', wanted to amalgamate the 2 websites he was currently hosting/managing into one,' .
         ' and the new website was to be built on WordPress.',
         ' I developed the theme from designs that were created in-house at Fortifi,' .
