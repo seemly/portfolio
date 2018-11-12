@@ -344,11 +344,9 @@ class CvPage extends AbstractContainerPage
       [
         UnorderedList::create()->addItems(
           [
-            'Since Summer 2016 I have been a keen runner. ' . 'In December of 2017 I ran my first marathon in Portsmouth.',
-
-            'As a member of my local running club - Gosport Road Runners - ' . 'in March 2018 I created a club mascot called \'Hugh\' using Adobe Illustrator. ' . 'It is currently going through the process of member introduction, ' . 'ready for printing on club attire and for media use.',
-
-            'I genuinely enjoy learning new skills, so I subscribe to Lynda.com ' . 'and watch video courses related to my industry including; JS, PHP, ' . 'Online Marketing and Illustrator.',
+            'Since Summer 2016 I have been a keen runner. In December of 2017 I ran my first marathon in Portsmouth.',
+            'As a member of my local running club - Gosport Road Runners - in March 2018 I created a club mascot called "Hugh" using Adobe Illustrator. It is currently going through the process of member introduction, ready for printing on club attire and for media use.',
+            'I genuinely enjoy learning new skills, so I subscribe to Lynda.com and watch video courses related to my industry including; JS, PHP, Online Marketing and Illustrator.',
           ]
         ),
       ]
