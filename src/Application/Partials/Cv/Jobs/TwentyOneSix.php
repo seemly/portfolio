@@ -76,7 +76,7 @@ class TwentyOneSix extends AbstractCvJobItem
     $tasks->addItem('Create screen-shot of email.');
 
     return [
-      HeadingFive::create('HTML Email Development'),
+      HeadingFive::create('HTML Emails'),
       Paragraph::create('Being a digital agency, there is a steady stream of HTML emails that need developing.'),
       Paragraph::create(
         'With this in mind, and knowing that we also have freelance developers that build emails for us from time to time, I decided to take it upon myself to create and document a workflow, which incorporates a task manager (Grunt) to automate a bunch of the repetitive tasks, including:'
@@ -97,7 +97,7 @@ class TwentyOneSix extends AbstractCvJobItem
   protected function _animatedBanners()
   {
     return [
-      HeadingFive::create('Animated HTML5 Banner Development - Google Web Designer'),
+      HeadingFive::create('Animated HTML5 Banners (Google Web Designer)'),
       Paragraph::create(
         'The development of HTML5 animated banners was another regular task I undertook.'
       ),
