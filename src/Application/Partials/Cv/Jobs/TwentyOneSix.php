@@ -79,7 +79,7 @@ class TwentyOneSix extends AbstractCvJobItem
       HeadingFive::create('HTML Emails'),
       Paragraph::create('Being a digital agency, there is a steady stream of HTML emails that need developing.'),
       Paragraph::create(
-        'With this in mind, and knowing that we also have freelance developers that build emails for us from time to time, I decided to take it upon myself to create and document a workflow, which incorporates a task manager (Grunt) to automate a bunch of the repetitive tasks, including:'
+        'With this in mind, and knowing that we also have freelance developers that build emails for us from time to time, I decided to take it upon myself to create and document a workflow which incorporates a task manager (Grunt) to automate a bunch of the repetitive tasks, including:'
       ),
       $tasks,
       Paragraph::create(

@@ -46,7 +46,7 @@ class Fortifi extends AbstractCvJobItem
       [
         'Josh, from ',
         $this->_createOutboundLink('AnalysisPro', 'http://www.analysispro.com'),
-        ', required a new website to be built on WordPress.',
+        ' required a new website to be built on WordPress.',
         ' I developed the theme from designs that were created in-house at Fortifi,' .
         ' and the website was launched in June, 2018.',
       ]
@@ -57,7 +57,7 @@ class Fortifi extends AbstractCvJobItem
       [
         'Mark, from ',
         $this->_createOutboundLink('Enjoy Fitness', 'http://www.enjoyfitnessstudio.co.uk'),
-        ', wanted to amalgamate the 2 websites he was currently hosting/managing into one,' .
+        ' wanted to amalgamate the 2 websites he was currently hosting/managing into one,' .
         ' and the new website was to be built on WordPress.',
         ' I developed the theme from designs that were created in-house at Fortifi,' .
         ' and the website was launched in August, 2018.',
