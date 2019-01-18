@@ -4,14 +4,11 @@ namespace App\Application\Infrastructure\Meta;
 
 class Personal
 {
-  const JOB_SEEKING = false;
-
-  const NAME      = 'Chris Sparshott';
-  const JOB_TITLE = 'PHP Web Developer & Frontend Developer';
-
-  const MOBILE = '07572 460 634';
-  const EMAIL  = 'chris@seemly.co.uk';
-
+  const JOB_SEEKING   = false;
+  const NAME          = 'Chris Sparshott';
+  const JOB_TITLE     = 'PHP Web Developer & Frontend Developer';
+  const MOBILE        = '07572 460 634';
+  const EMAIL         = 'chris@seemly.co.uk';
   const DOMAIN_PRICES = 'http://seemly.co.uk/domains/prices';
   const PORTFOLIO     = 'http://sparshott.co.uk';
   const TWITTER       = 'https://twitter.com/seemly';
