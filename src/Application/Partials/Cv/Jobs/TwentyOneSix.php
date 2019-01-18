@@ -60,6 +60,7 @@ class TwentyOneSix extends AbstractCvJobItem
         ]
       ),
       Paragraph::create(HtmlTag::createTag('small', [], '(Project is ongoing, and is yet to go live)')),
+      LineBreak::create(),
     ];
   }
 
@@ -88,6 +89,7 @@ class TwentyOneSix extends AbstractCvJobItem
       Paragraph::create(
         'All emails were tested in Litmus, ensuring the design met an acceptable consistency across all email clients.'
       ),
+      LineBreak::create(),
     ];
   }
 
@@ -104,6 +106,7 @@ class TwentyOneSix extends AbstractCvJobItem
       Paragraph::create(
         'With experience of Adobe Flash at the start of my career, this helped me and my learning curve using Google Web Designer as an application when building the banners.'
       ),
+      LineBreak::create(),
     ];
   }
 
@@ -121,12 +124,9 @@ class TwentyOneSix extends AbstractCvJobItem
     $projects->addItem('Refactoring required of some client Wordpress projects, implementing ACF 5 where required');
 
     return [
-      $this->_leukaemiaBusters(),
-      LineBreak::create(),
+//      $this->_leukaemiaBusters(),
       $this->_htmlEmailDevelopment(),
-      LineBreak::create(),
       $this->_animatedBanners(),
-      LineBreak::create(),
       Paragraph::create(BoldText::create('Additional Tasks;')),
       $projects,
     ];
