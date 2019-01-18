@@ -149,6 +149,11 @@ class CvPage extends AbstractContainerPage
    */
   protected function _contactDetails()
   {
+    if(!Personal::JOB_SEEKING)
+    {
+      return [];
+    }
+
     return [
       $this->_getEmail(),
       LineBreak::create(),
