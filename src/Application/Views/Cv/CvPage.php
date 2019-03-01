@@ -3,6 +3,7 @@
 namespace App\Application\Views\Cv;
 
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
+use App\Application\Infrastructure\Enums\JobSeeking;
 use App\Application\Infrastructure\Interfaces\Ui\AlertType;
 use App\Application\Infrastructure\Meta\Paths;
 use App\Application\Infrastructure\Meta\Personal;
@@ -149,7 +150,7 @@ class CvPage extends AbstractContainerPage
    */
   protected function _contactDetails()
   {
-    if(!Personal::JOB_SEEKING)
+    if(Personal::JOB_SEEKING === JobSeeking::NO)
     {
       return [];
     }
@@ -234,13 +235,28 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
+   * @return int
+   */
+  protected function _howManyYearsProgramming()
+  {
+    $job               = new One2create();
+    $firstJobStartDate = $job->getJobStartDate()->getContent(false);
+
+    $start = date('Y-m-d', strtotime($firstJobStartDate));
+    $start = new \DateTime($start);
+    $now   = new \DateTime(date('Y-m-d', time()));
+    return $start->diff($now)->y;
+  }
+
+  /**
    * @return Div
    */
   protected function _getProfileSection()
   {
     $content = [
       Paragraph::create(
-        'A highly competent and attentive frontend focused PHP developer, with over 10 years experience.'
+        'A highly competent and attentive frontend focused PHP developer,' .
+        ' with over '. $this->_howManyYearsProgramming() .' years experience.'
       ),
       Paragraph::create(
         [
@@ -409,13 +425,30 @@ class CvPage extends AbstractContainerPage
   /**
    * @return \Packaged\Glimpse\Core\SafeHtml
    */
+  protected function _maybeNewJob()
+  {
+    return Alert::i(
+      [
+        'I could be persuaded by new opportunities...',
+      ],
+      AlertType::ALERT_INFO
+    )->render();
+  }
+
+  /**
+   * @return \Packaged\Glimpse\Core\SafeHtml
+   */
   protected function _seekingNewOpportunities()
   {
-    if(Personal::JOB_SEEKING)
+    switch(Personal::JOB_SEEKING)
     {
-      return $this->_yesNewJob();
+      case JobSeeking::YES:
+        return $this->_yesNewJob();
+      case JobSeeking::NO:
+        return $this->_noNewJob();
+      case JobSeeking::MAYBE:
+        return $this->_maybeNewJob();
     }
-    return $this->_noNewJob();
   }
 
   /**

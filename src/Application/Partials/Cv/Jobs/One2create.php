@@ -23,7 +23,7 @@ class One2create extends AbstractCvJobItem
   }
 
   /**
-   * @return string
+   * @return array|string
    */
   protected function _description()
   {

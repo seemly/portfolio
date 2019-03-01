@@ -48,6 +48,14 @@ abstract class AbstractCvJobItem
   abstract protected function _jobEndDate();
 
   /**
+   * @return HtmlTag
+   */
+  public function getJobStartDate()
+  {
+    return $this->_jobStartDate();
+  }
+
+  /**
    * 0 depicts current/present
    *
    * @param int $month
