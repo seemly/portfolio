@@ -155,9 +155,9 @@ class TwentyOneSix extends AbstractCvJobItem
     $companyWebsite->setTarget();
 
     $projects = UnorderedList::create();
-    $projects->addItem('Functionality updates to Peter Cooper Volkswagen');
-    $projects->addItem('Updates to the 21six company website - Industry page template');
-    $projects->addItem('Refactoring required of some client Wordpress projects, implementing ACF 5 where required');
+    $projects->addItem('Collaborate with internal teams to ensure we provide optimal solutions to the clients problems.');
+    $projects->addItem('Performance optimisations and some refactoring of code for new feature implementations.');
+    $projects->addItem('Client websites functional updates and bug fixes.');
 
     return [
       $this->_chalkstring(),
