@@ -33,17 +33,17 @@ class TwentyOneSix extends AbstractCvJobItem
    */
   protected function _leukaemiaBusters()
   {
-    $rareloop         = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
-    $lumberjack       = $this->_createOutboundLink('Lumberjack', 'https://github.com/Rareloop/lumberjack');
-    $leukaemiaBusters = $this->_createOutboundLink('Leukaemia Busters', 'http://leukaemiaBusters.org.uk');
-    $astrum           = $this->_createOutboundLink('Astrum', 'https://github.com/NoDivide/astrum');
+    $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
+    $lumberjack = $this->_createOutboundLink('Lumberjack', 'https://github.com/Rareloop/lumberjack');
+    $projectUrl = $this->_createOutboundLink('Leukaemia Busters', 'http://leukaemiaBusters.org.uk');
+    $astrum     = $this->_createOutboundLink('Astrum', 'https://github.com/NoDivide/astrum');
 
     return [
       HeadingFive::create('Leukaemia Busters'),
       Paragraph::create(
         [
           'Employed as a Frontend focused PHP developer, one of my first tasks at 21six was to re-create the ',
-          $leukaemiaBusters,
+          $projectUrl,
           ' charity website (previously built on Joomla) using the fantastic Wordpress framework ',
           $lumberjack,
           ', developed by the team at ',
@@ -67,13 +67,49 @@ class TwentyOneSix extends AbstractCvJobItem
   /**
    * @return array
    */
+  protected function _chalkstring()
+  {
+    $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
+    $lumberjack = $this->_createOutboundLink('Lumberjack', 'https://github.com/Rareloop/lumberjack');
+    $projectUrl = $this->_createOutboundLink('Chalkstring', 'http://chalkstring.com');
+
+    return [
+      HeadingFive::create('Chalkstring - Wordpress'),
+      Paragraph::create(
+        [
+          $projectUrl,
+          ' is a wordpress website built using the ',
+          $lumberjack,
+          ' framework (developed by the team at ',
+          $rareloop,
+          ').',
+        ]
+      ),
+      Paragraph::create(
+        [
+          'Lumberjack allows for an Object Oriented approach to wordpress theme development,' .
+          ' with Twig used for templating the HTML, implementing the BEM methodology for styling components,' .
+          ' and the fantastic ACF (Advanced Custom Fields) plugin is used for creating flexible, customisable and re-usable modules.'
+        ]
+      ),
+      Paragraph::create(
+        [
+          'One of my aims for this project was to build components in such a way that they can be used in future projects, minimising development time.',
+        ]
+      ),
+      LineBreak::create(),
+    ];
+  }
+
+  /**
+   * @return array
+   */
   protected function _htmlEmailDevelopment()
   {
     $tasks = UnorderedList::create();
-    $tasks->addItem('Compiling CSS.');
     $tasks->addItem('Optimising images.');
     $tasks->addItem('Compiling CSS and HTML through Pre-mailer API.');
-    $tasks->addItem('Browser refresh.');
+    $tasks->addItem('BrowserSync to auto-reload changes.');
     $tasks->addItem('Create screen-shot of email.');
 
     return [
@@ -84,10 +120,10 @@ class TwentyOneSix extends AbstractCvJobItem
       ),
       $tasks,
       Paragraph::create(
-        'This workflow could be refined further over time, but it provided a solid starting point, reducing the time taken to develop quite dramatically.'
+        'This workflow can be refined over time, but it has provided a solid starting point in reducing the time taken to develop quite dramatically.'
       ),
       Paragraph::create(
-        'All emails were tested in Litmus, ensuring the design met an acceptable consistency across all email clients.'
+        'All emails are tested in Litmus, ensuring the design met an acceptable consistency across all email clients.'
       ),
       LineBreak::create(),
     ];
@@ -124,7 +160,7 @@ class TwentyOneSix extends AbstractCvJobItem
     $projects->addItem('Refactoring required of some client Wordpress projects, implementing ACF 5 where required');
 
     return [
-//      $this->_leukaemiaBusters(),
+      $this->_chalkstring(),
       $this->_htmlEmailDevelopment(),
       $this->_animatedBanners(),
       Paragraph::create(BoldText::create('Additional Tasks;')),
