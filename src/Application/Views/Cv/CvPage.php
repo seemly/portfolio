@@ -260,7 +260,10 @@ class CvPage extends AbstractContainerPage
       ),
       Paragraph::create(
         [
-          'I have always sought to push myself and learn new skills, ' . 'and I am now looking for a new opportunity and a new challenge. ' . 'As a frontend developer that has transitioned into frontend PHP development, ' . 'I am looking to get more involved with backend development, ' . 'database design & management.',
+          'I have always sought to push myself and learn new skills. ' .
+          'As a frontend developer that has transitioned into PHP development, ' .
+          'I am looking to get more involved with backend development, ' .
+          'database design & management.',
         ]
       ),
     ];
