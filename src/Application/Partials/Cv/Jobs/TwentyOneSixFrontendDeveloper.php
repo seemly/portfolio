@@ -10,7 +10,7 @@ use Packaged\Glimpse\Tags\Text\BoldText;
 use Packaged\Glimpse\Tags\Text\HeadingFive;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 
-class TwentyOneSix extends AbstractCvJobItem
+class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
 {
   /**
    * @return string
@@ -189,7 +189,7 @@ class TwentyOneSix extends AbstractCvJobItem
    */
   protected function _jobEndDate()
   {
-    return $this->_createDate();
+    return $this->_createDate(4, 2019);
   }
 
 }
