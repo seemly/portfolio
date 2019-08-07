@@ -70,6 +70,12 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
       Paragraph::create(
         'The Proper Food & Drink Company requested a web presence for each of their brands. To maintain consistency the primary brand colours were used as emphasis, alongside some minor functional differences across each website.'
       ),
+      Paragraph::create(
+        [
+          'Built on Wordpress using the fantastic MVC boilerplate developed by Rareloop; ',
+          $this->_getLumberjackLink(),
+        ]
+      ),
       $list,
     ];
   }

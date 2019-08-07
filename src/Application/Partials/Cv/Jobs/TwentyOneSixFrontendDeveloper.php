@@ -34,7 +34,6 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
   protected function _leukaemiaBusters()
   {
     $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
-    $lumberjack = $this->_createOutboundLink('Lumberjack', 'https://github.com/Rareloop/lumberjack');
     $projectUrl = $this->_createOutboundLink('Leukaemia Busters', 'http://leukaemiaBusters.org.uk');
     $astrum     = $this->_createOutboundLink('Astrum', 'https://github.com/NoDivide/astrum');
 
@@ -45,7 +44,7 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
           'Employed as a Frontend focused PHP developer, one of my first tasks at 21six was to re-create the ',
           $projectUrl,
           ' charity website (previously built on Joomla) using the fantastic Wordpress framework ',
-          $lumberjack,
+          $this->_getLumberjackLink(),
           ', developed by the team at ',
           $rareloop,
           '.',
@@ -87,9 +86,7 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
       ),
       Paragraph::create(
         [
-          'Lumberjack allows for an Object Oriented approach to wordpress theme development,' .
-          ' with Twig used for templating the HTML, implementing the BEM methodology for styling components,' .
-          ' and the fantastic ACF (Advanced Custom Fields) plugin is used for creating flexible, customisable and re-usable modules.'
+          'Lumberjack allows for an Object Oriented approach to wordpress theme development,' . ' with Twig used for templating the HTML, implementing the BEM methodology for styling components,' . ' and the fantastic ACF (Advanced Custom Fields) plugin is used for creating flexible, customisable and re-usable modules.',
         ]
       ),
       Paragraph::create(
@@ -155,7 +152,9 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
     $companyWebsite->setTarget();
 
     $projects = UnorderedList::create();
-    $projects->addItem('Collaborate with internal teams to ensure we provide optimal solutions to the clients problems.');
+    $projects->addItem(
+      'Collaborate with internal teams to ensure we provide optimal solutions to the clients problems.'
+    );
     $projects->addItem('Performance optimisations and some refactoring of code for new feature implementations.');
     $projects->addItem('Client websites functional updates and bug fixes.');
 

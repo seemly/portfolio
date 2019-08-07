@@ -125,6 +125,16 @@ abstract class AbstractCvJobItem
   }
 
   /**
+   * @param string $text
+   *
+   * @return Link
+   */
+  protected function _getLumberjackLink(string $text = 'Lumberjack')
+  {
+    return $this->_createOutboundLink($text, 'https://lumberjack.rareloop.com/');
+  }
+
+  /**
    * @return Div
    */
   public function render()
