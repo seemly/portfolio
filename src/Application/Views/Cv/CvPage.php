@@ -318,6 +318,7 @@ class CvPage extends AbstractContainerPage
       'Javascript / jQuery',
       'PHP / MySQL',
       'GIT',
+      'CLI / SSH',
       'Photoshop',
     ];
 
