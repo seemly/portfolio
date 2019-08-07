@@ -105,13 +105,23 @@ abstract class AbstractCvJobItem
    * @param string $text
    * @param string $url
    *
-   * @return static
+   * @return Link
    */
   protected function _createOutboundLink(string $text, string $url)
   {
     $link = Link::create($url, $text);
     $link->setTarget()->setAttribute('rel', 'nofollow');
     return $link;
+  }
+
+  /**
+   * @param string $text
+   *
+   * @return Link
+   */
+  protected function _getCubexLink(string $text = 'Cubex')
+  {
+    return $this->_createOutboundLink($text, 'https://github.com/cubex/framework');
   }
 
   /**
