@@ -188,7 +188,7 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
    */
   protected function _jobEndDate()
   {
-    return $this->_createDate(4, 2019);
+    return $this->_createDate(3, 2019);
   }
 
 }
