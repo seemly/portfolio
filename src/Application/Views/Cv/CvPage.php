@@ -43,6 +43,14 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
+   * @return bool
+   */
+  protected function _notJobSeeking()
+  {
+    return (Personal::JOB_SEEKING === JobSeeking::NO);
+  }
+
+  /**
    * @param string      $url
    * @param string      $content
    * @param string|null $tooltip
@@ -77,7 +85,7 @@ class CvPage extends AbstractContainerPage
    */
   protected function _getPhone()
   {
-    if(Personal::JOB_SEEKING)
+    if(!$this->_notJobSeeking())
     {
       $phone = Personal::MOBILE;
       return $this->_createContactLink("tel:{$phone}", $phone);
@@ -147,20 +155,20 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return array
+   * @return null|array
    */
   protected function _contactDetails()
   {
-    if(Personal::JOB_SEEKING === JobSeeking::NO)
+    if(!$this->_notJobSeeking())
     {
-      return [];
+      return [
+        $this->_getEmail(),
+        LineBreak::create(),
+        $this->_getPhone(),
+      ];
     }
 
-    return [
-      $this->_getEmail(),
-      LineBreak::create(),
-      $this->_getPhone(),
-    ];
+    return null;
   }
 
   /**
@@ -170,7 +178,7 @@ class CvPage extends AbstractContainerPage
   {
     $link = Link::create(Paths::CV_DOWNLOAD, 'Download CV')->setTarget();
     $link->addClass(BS::BTN_PRIMARY, BS::BTN_SM);
-    return Div::create($link)->addClass(BS::MB_2);
+    return Div::create($link)->addClass(BS::MB_2, BS::DISPLAY_PRINT_NONE);
   }
 
   /**
@@ -187,7 +195,8 @@ class CvPage extends AbstractContainerPage
       BS::COL_LG_5,
       BS::TEXT_LG_RIGHT,
       BS::DISPLAY_NONE,
-      BS::DISPLAY_BLOCK_LG
+      BS::DISPLAY_BLOCK_LG,
+      BS::DISPLAY_PRINT_INLINE_BLOCK
     );
   }
 
@@ -464,7 +473,7 @@ class CvPage extends AbstractContainerPage
   {
     return Div::create(
       [
-        $this->_seekingNewOpportunities(),
+        Div::create($this->_seekingNewOpportunities())->addClass(BS::DISPLAY_PRINT_NONE),
         $this->_intro(),
         $this->_getProfileSection(),
         $this->_getTechnicalSection(),
