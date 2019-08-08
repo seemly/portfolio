@@ -69,11 +69,11 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
   protected function _chalkstring()
   {
     $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
-    $lumberjack = $this->_createOutboundLink('Lumberjack', 'https://github.com/Rareloop/lumberjack');
+    $lumberjack = $this->_getLumberjackLink();
     $projectUrl = $this->_createOutboundLink('Chalkstring', 'http://chalkstring.com');
 
     return [
-      HeadingFive::create('Chalkstring - Wordpress'),
+      HeadingFive::create('Chalkstring.com'),
       Paragraph::create(
         [
           $projectUrl,

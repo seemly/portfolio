@@ -107,14 +107,45 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
   /**
    * @return array
    */
+  protected function _get21sixProject()
+  {
+    $list = UnorderedList::create();
+    $list->addItem($this->_createOutboundLink('21six', 'https://21six.com'));
+
+    return [
+      HeadingFive::create('21six.com'),
+      Paragraph::create(
+        'With the transition and restructuring of staff, there was a desire to update an aging website with a fresh new platform to showcase our work in an eye-catching way, under the direction of the creative director.'
+      ),
+      Paragraph::create(
+        [
+          'The website is built in Wordpress using the ',
+          $this->_getLumberjackLink('Lumberjack Framework'),
+          ', enabling an OO PHP methodology to development, TWIG templating for markup, alongside usage of BEM and SCSS for styling.',
+        ]
+      ),
+      Paragraph::create(
+        'Advanced Custom Fields (ACF5) is used to create reusable custom components, to provide a Page Builder like interface for website content administrators.'
+      ),
+      $list,
+    ];
+  }
+
+  /**
+   * @return array
+   */
   protected function _description()
   {
     return [
+      Paragraph::create(
+        'During a period of transition and restructuring of the staff at 21six, I was promoted to Head of Development.'
+      ),
       Paragraph::create(BoldText::create('Implementations;')),
       $this->_getImplementations(),
       Paragraph::create(BoldText::create('Projects;')),
       $this->_getProperFoodCompanyProjects(),
       $this->_getMorningsideCostCalculatorProject(),
+      $this->_get21sixProject(),
     ];
   }
 
