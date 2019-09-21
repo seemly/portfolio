@@ -138,7 +138,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
   {
     return [
       Paragraph::create(
-        'During a period of transition and restructuring of the staff at 21six, I was promoted to Head of Development.'
+        'During a period of transition and restructuring of the staff at 21six, I was promoted to Head of Digital.'
       ),
       Paragraph::create(BoldText::create('Implementations;')),
       $this->_getImplementations(),

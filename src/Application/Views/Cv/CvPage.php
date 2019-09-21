@@ -4,6 +4,7 @@ namespace App\Application\Views\Cv;
 
 use App\Application\Infrastructure\Enums\Bootstrap\Bootstrap as BS;
 use App\Application\Infrastructure\Enums\JobSeeking;
+use App\Application\Infrastructure\Interfaces\IDiscipline;
 use App\Application\Infrastructure\Interfaces\Ui\AlertType;
 use App\Application\Infrastructure\Meta\Paths;
 use App\Application\Infrastructure\Meta\Personal;
@@ -18,6 +19,8 @@ use App\Application\Partials\Cv\Jobs\TwentyOneSixFrontendDeveloper;
 use App\Application\Partials\Cv\Jobs\TwentyOneSixHeadOfDigital;
 use App\Application\Partials\Cv\Jobs\VandF;
 use App\Application\Views\BaseAbstractPages\AbstractContainerPage;
+use DateTime;
+use Packaged\Glimpse\Core\SafeHtml;
 use Packaged\Glimpse\Elements\LineBreak;
 use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Link;
@@ -30,8 +33,16 @@ use Packaged\Glimpse\Tags\Text\HeadingTwo;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 use Packaged\Helpers\Strings;
 
-class CvPage extends AbstractContainerPage
+class CvPage extends AbstractContainerPage implements IDiscipline
 {
+  /** @var string */
+  protected $_discipline;
+
+  public function __construct(string $discipline)
+  {
+    $this->_discipline = $discipline;
+  }
+
   /**
    * @param $str
    *
@@ -253,8 +264,8 @@ class CvPage extends AbstractContainerPage
     $firstJobStartDate = $job->getJobStartDate()->getContent(false);
 
     $start = date('Y-m-d', strtotime($firstJobStartDate));
-    $start = new \DateTime($start);
-    $now   = new \DateTime(date('Y-m-d', time()));
+    $start = new DateTime($start);
+    $now   = new DateTime(date('Y-m-d', time()));
     return $start->diff($now)->y;
   }
 
@@ -265,18 +276,27 @@ class CvPage extends AbstractContainerPage
   {
     $content = [
       Paragraph::create(
-        'A highly competent and attentive frontend focused PHP developer,' .
-        ' with over '. $this->_howManyYearsProgramming() .' years experience.'
-      ),
-      Paragraph::create(
-        [
-          'I have always sought to push myself and learn new skills. ' .
-          'As a frontend developer that has transitioned into PHP development, ' .
-          'I am looking to get more involved with backend development, ' .
-          'database design & management.',
-        ]
-      ),
+        'A highly competent and attentive developer across both PHP and frontend ' . 'with more than ' . $this->_howManyYearsProgramming(
+        ) . ' years experience, ' . 'I have always sought to push myself and learn new skills. '
+      )
     ];
+
+    if($this->_discipline === self::DISCIPLINE_FRONTEND)
+    {
+      $content[] = Paragraph::create(
+        [
+          'During the last 5 years I have worked primarily as a PHP & frontend developer, ' . 'and in the last few months I have been self-learning React JS. ' . 'With this new found knowledge I am working on upgrading personal projects.',
+        ]
+      );
+    }
+    else
+    {
+      $content[] = Paragraph::create(
+        [
+          'I have always sought to push myself and learn new skills. ' . 'As a frontend developer that has transitioned into PHP development, ' . 'I am looking to get more involved with backend development, ' . 'database design & management.',
+        ]
+      );
+    }
 
     return $this->_section('Profile', $content);
   }
@@ -412,7 +432,7 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return \Packaged\Glimpse\Core\SafeHtml
+   * @return SafeHtml
    */
   protected function _yesNewJob()
   {
@@ -423,7 +443,7 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return \Packaged\Glimpse\Core\SafeHtml
+   * @return SafeHtml
    */
   protected function _noNewJob()
   {
@@ -438,7 +458,7 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return \Packaged\Glimpse\Core\SafeHtml
+   * @return SafeHtml
    */
   protected function _maybeNewJob()
   {
@@ -451,7 +471,7 @@ class CvPage extends AbstractContainerPage
   }
 
   /**
-   * @return \Packaged\Glimpse\Core\SafeHtml
+   * @return SafeHtml
    */
   protected function _seekingNewOpportunities()
   {
