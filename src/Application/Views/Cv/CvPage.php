@@ -507,7 +507,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
         $this->_getInterestsSection(),
         $this->_linksSection(),
       ]
-    )->addClass(BS::P_5, BS::MX_3);
+    )->addClass(BS::PY_5, BS::PX_2, BS::MX_3);
   }
 
 }
