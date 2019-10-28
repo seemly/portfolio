@@ -278,7 +278,13 @@ class CvPage extends AbstractContainerPage implements IDiscipline
       Paragraph::create(
         'A highly competent and attentive developer across both PHP and frontend ' . 'with more than ' . $this->_howManyYearsProgramming(
         ) . ' years experience, ' . 'I have always sought to push myself and learn new skills. '
-      )
+      ),
+      Paragraph::create(
+        'I am very much a hands-on developer, even in my current position as Head of Digital, which is more of a title bestowed upon me rather than by application.'
+      ),
+      Paragraph::create(
+        'Whilst my position entails an element of management, I would very much consider myself a developer first and foremost, and I would personally consider myself mid-weight to senior level.'
+      ),
     ];
 
     if($this->_discipline === self::DISCIPLINE_FRONTEND)
