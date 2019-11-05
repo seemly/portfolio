@@ -33,7 +33,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
   {
     $list = UnorderedList::create();
     $list->addItem(
-      'Mentoring a 2nd year intern from Solent University, taking into consideration his current knowledge alongside the upcoming units within his 3rd year, planning tasks and projects that will optimise his learning.'
+      'Throughout the summer of 2019 I mentored a 2nd year intern from Solent University, taking into consideration his current knowledge alongside the upcoming units within his 3rd year, planning tasks and projects that will optimise his learning.'
     );
     $list->addItem(
       'Instigating the documentation of our current project process map to discover issues and / or bottlenecks.'
