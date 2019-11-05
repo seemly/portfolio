@@ -280,10 +280,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
         ) . ' years experience, ' . 'I have always sought to push myself and learn new skills. '
       ),
       Paragraph::create(
-        'I am very much a hands-on developer, even in my current position as Head of Digital, which is more of a title bestowed upon me rather than by application.'
-      ),
-      Paragraph::create(
-        'Whilst my position entails an element of management, I would very much consider myself a developer first and foremost, and I would personally consider myself mid-weight to senior level.'
+        'I have a strong mindset towards working smart not hard, with a desire to iterate and improve.'
       ),
     ];
 

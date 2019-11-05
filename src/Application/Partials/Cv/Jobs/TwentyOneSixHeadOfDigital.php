@@ -23,7 +23,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
    */
   protected function _jobTitle()
   {
-    return 'Head of Digital';
+    return 'Full Stack Developer';
   }
 
   /**
@@ -33,7 +33,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
   {
     $list = UnorderedList::create();
     $list->addItem(
-      'Employing and mentoring a 2nd year intern from Solent University, taking into consideration his current knowledge alongside the upcoming units within his 3rd year, planning tasks and projects that will optimise his learning.'
+      'Mentoring a 2nd year intern from Solent University, taking into consideration his current knowledge alongside the upcoming units within his 3rd year, planning tasks and projects that will optimise his learning.'
     );
     $list->addItem(
       'Instigating the documentation of our current project process map to discover issues and / or bottlenecks.'
@@ -115,7 +115,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
     return [
       HeadingFive::create('21six.com'),
       Paragraph::create(
-        'With the transition and restructuring of staff, there was a desire to update an aging website with a fresh new platform to showcase our work in an eye-catching way, under the direction of the creative director.'
+        'Updated an aging website with a fresh new platform to showcase our work in an eye-catching way, under the direction of the creative director.'
       ),
       Paragraph::create(
         [
@@ -125,7 +125,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
         ]
       ),
       Paragraph::create(
-        'Advanced Custom Fields (ACF5) is used to create reusable custom components, to provide a Page Builder like interface for website content administrators.'
+        'Advanced Custom Fields (ACF) is used to create reusable custom components, to provide a Page Builder like interface for website content administrators.'
       ),
       $list,
     ];
@@ -137,9 +137,9 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
   protected function _description()
   {
     return [
-      Paragraph::create(
-        'During a period of transition and restructuring of the staff at 21six, I was promoted to Head of Digital.'
-      ),
+//      Paragraph::create(
+//        'During a period of transition and restructuring of the staff at 21six, I was promoted to Head of Digital.'
+//      ),
       Paragraph::create(BoldText::create('Implementations;')),
       $this->_getImplementations(),
       Paragraph::create(BoldText::create('Projects;')),
