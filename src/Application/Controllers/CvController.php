@@ -45,7 +45,7 @@ class CvController extends AbstractAppController implements IDiscipline
    */
   public function downloadCv()
   {
-    $filename = 'cv-chris-sparshott-php-frontend-developer.pdf';
+    $filename = 'cv-chris-sparshott-full-stack-developer.pdf';
     $path = 'files/cv/' . $filename;
     $am = AssetManager::assetType();
 
