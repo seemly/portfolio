@@ -137,9 +137,9 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
   protected function _description()
   {
     return [
-//      Paragraph::create(
-//        'During a period of transition and restructuring of the staff at 21six, I was promoted to Head of Digital.'
-//      ),
+      Paragraph::create(
+        'Daily tasks include website builds, maintenance, updates, infrastructure improvements, code refactoring, etc.'
+      ),
       Paragraph::create(BoldText::create('Implementations;')),
       $this->_getImplementations(),
       Paragraph::create(BoldText::create('Projects;')),
