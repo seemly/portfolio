@@ -2,4 +2,7 @@ SETENV CUBEX_ENV production
 
 RewriteEngine on
 #RewriteBase /
-RewriteRule ^(.*)$        public/index.php  [L,QSA]
+RewriteRule ^(.*)$ public/index.php [L,QSA]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=302,NE]
