@@ -1,0 +1,40 @@
+<?php
+use Packaged\Dispatch\AssetManager;
+
+$am = AssetManager::assetType();
+
+$fontAwesomePath = 'fonts/fontawesome/css/font-awesome.min.css';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="fragment" content="!">
+
+  <title><?= $this->getData('title', 'Chris Sparshott - Portfolio'); ?></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <?= $this->getData('metaTags'); ?>
+
+  <link rel="shortcut icon"
+        href="<?= $this->getData('favicon', '/favicon.ico'); ?>"/>
+
+  <link rel='stylesheet'
+        type='text/css'
+        href="<?= $am->getResourceUri($fontAwesomePath); ?>"/>
+
+  <link rel="stylesheet"
+        href="<?= $am->getResourceUri('css/vendor.min.css'); ?>">
+  <link rel="stylesheet" href="<?= $am->getResourceUri('css/base.min.css'); ?>">
+
+  <?= AssetManager::generateHtmlIncludes(AssetManager::TYPE_CSS); ?>
+</head>
+<?= AssetManager::generateHtmlIncludes('css'); ?>
+
+<body><?= $this->content(); ?>
+
+<?= AssetManager::generateHtmlIncludes('js'); ?>
+</body>
+</html>
