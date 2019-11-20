@@ -288,7 +288,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     {
       $content[] = Paragraph::create(
         [
-          'During the last 5 years I have worked primarily as a PHP & frontend developer, ' . 'and in the last few months I have been self-learning React JS. ' . 'With this new found knowledge I am working on upgrading personal projects.',
+          'Since 2014 I have worked primarily across the full stack as a PHP & frontend developer, ' . 'with the last few months learning React JS. With this new found knowledge I am working on upgrading personal projects.',
         ]
       );
     }
@@ -296,7 +296,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     {
       $content[] = Paragraph::create(
         [
-          'I have always sought to push myself and learn new skills. ' . 'As a frontend developer that has transitioned into PHP development, ' . 'I am looking to get more involved with backend development, ' . 'database design & management.',
+          'I have always sought to push myself and learn new skills. ' . 'As a frontend developer that has transitioned into PHP development, I am looking to get more involved with backend development, database design & management.',
         ]
       );
     }
