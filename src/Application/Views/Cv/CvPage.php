@@ -10,6 +10,7 @@ use App\Application\Infrastructure\Meta\Paths;
 use App\Application\Infrastructure\Meta\Personal;
 use App\Application\Infrastructure\Ui\Bootstrap\Alert;
 use App\Application\Partials\Cv\Jobs\AbacusEmedia;
+use App\Application\Partials\Cv\Jobs\D3r;
 use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
@@ -380,6 +381,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     return $this->_section(
       'Experience',
       [
+        D3r::i(),
         TwentyOneSixHeadOfDigital::i(),
         TwentyOneSixFrontendDeveloper::i(),
         Fortifi::i(),
