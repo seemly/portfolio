@@ -8,7 +8,7 @@ class Personal
 {
   const JOB_SEEKING   = JobSeeking::YES;
   const NAME          = 'Chris Sparshott';
-  const JOB_TITLE     = 'PHP Web Developer & Frontend Developer';
+  const JOB_TITLE     = 'Frontend & PHP Developer';
   const MOBILE        = '07572 460 634';
   const EMAIL         = 'chris@sparshott.co.uk';
   const DOMAIN_PRICES = 'http://seemly.co.uk/domains/prices';
