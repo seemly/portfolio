@@ -23,7 +23,7 @@ class TwentyOneSixHeadOfDigital extends AbstractCvJobItem
    */
   protected function _jobTitle()
   {
-    return 'Full Stack Developer';
+    return 'Head of Digital';
   }
 
   /**
