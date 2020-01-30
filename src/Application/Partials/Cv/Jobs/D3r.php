@@ -90,7 +90,7 @@ class D3r extends AbstractCvJobItem
    */
   protected function _jobEndDate()
   {
-    return $this->_createDate();
+    return $this->_createDate(2, 2020);
   }
 
 }
