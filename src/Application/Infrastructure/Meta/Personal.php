@@ -6,7 +6,7 @@ use App\Application\Infrastructure\Enums\JobSeeking;
 
 class Personal
 {
-  const JOB_SEEKING   = JobSeeking::YES;
+  const JOB_SEEKING   = JobSeeking::NO;
   const NAME          = 'Chris Sparshott';
   const JOB_TITLE     = 'Frontend & PHP Developer';
   const MOBILE        = '07572 460 634';
