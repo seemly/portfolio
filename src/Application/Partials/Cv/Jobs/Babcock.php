@@ -34,7 +34,7 @@ class Babcock extends AbstractCvJobItem
 
     $list = UnorderedList::create();
     $list->addItem($primaryProject);
-    $list->addItem($this->_createOutboundLink('Babcock Flights', 'https://www.babcockflights.com'));
+    $list->addItem($this->_createOutboundLink('Babcock Flights', 'https://www.babcock.flights'));
 
     return [
       HeadingFive::create('Daily Tasks and Projects'),
