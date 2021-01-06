@@ -70,7 +70,7 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
   {
     $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
     $lumberjack = $this->_getLumberjackLink();
-    $projectUrl = $this->_createOutboundLink('Chalkstring', 'http://chalkstring.com');
+    $projectUrl = $this->_createOutboundLink('Chalkstring', 'http://web.archive.org/web/20190718084158/https://www.chalkstring.com/');
 
     return [
       HeadingFive::create('Chalkstring.com'),
