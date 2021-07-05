@@ -39,7 +39,7 @@ class DomainSalesHistory extends AbstractCvJobItem
         ),
         Paragraph::create(
           [
-            'Now with more than ',
+            'With a searchable and filterable database of ',
             $link,
             ' it proves to be a useful tool in a domainers arsenal for both buyers and sellers of UK domain names.',
           ]
