@@ -31,76 +31,6 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
   /**
    * @return array
    */
-  protected function _leukaemiaBusters()
-  {
-    $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
-    $projectUrl = $this->_createOutboundLink('Leukaemia Busters', 'http://leukaemiaBusters.org.uk');
-    $astrum     = $this->_createOutboundLink('Astrum', 'https://github.com/NoDivide/astrum');
-
-    return [
-      HeadingFive::create('Leukaemia Busters'),
-      Paragraph::create(
-        [
-          'Employed as a Frontend focused PHP developer, one of my first tasks at 21six was to re-create the ',
-          $projectUrl,
-          ' charity website (previously built on Joomla) using the fantastic Wordpress framework ',
-          $this->_getLumberjackLink(),
-          ', developed by the team at ',
-          $rareloop,
-          '.',
-        ]
-      ),
-      Paragraph::create(
-        [
-          'Having limited previous exposure to Wordpress itself, this was both an interesting and enjoyable task to undertake. ',
-          'I decided to also implement a pattern library using ',
-          $astrum,
-          ' to further improve consistency on the project.',
-        ]
-      ),
-      Paragraph::create(HtmlTag::createTag('small', [], '(Project is ongoing, and is yet to go live)')),
-      LineBreak::create(),
-    ];
-  }
-
-  /**
-   * @return array
-   */
-  protected function _chalkstring()
-  {
-    $rareloop   = $this->_createOutboundLink('RareLoop', 'https://rareloop.com');
-    $lumberjack = $this->_getLumberjackLink();
-    $projectUrl = $this->_createOutboundLink('Chalkstring', 'http://web.archive.org/web/20190718084158/https://www.chalkstring.com/');
-
-    return [
-      HeadingFive::create('Chalkstring.com'),
-      Paragraph::create(
-        [
-          $projectUrl,
-          ' is a wordpress website built using the ',
-          $lumberjack,
-          ' framework (developed by the team at ',
-          $rareloop,
-          ').',
-        ]
-      ),
-      Paragraph::create(
-        [
-          'Lumberjack allows for an Object Oriented approach to wordpress theme development,' . ' with Twig used for templating the HTML, implementing the BEM methodology for styling components,' . ' and the fantastic ACF (Advanced Custom Fields) plugin is used for creating flexible, customisable and re-usable modules.',
-        ]
-      ),
-      Paragraph::create(
-        [
-          'One of my aims for this project was to build components in such a way that they can be used in future projects, minimising development time.',
-        ]
-      ),
-      LineBreak::create(),
-    ];
-  }
-
-  /**
-   * @return array
-   */
   protected function _htmlEmailDevelopment()
   {
     $tasks = UnorderedList::create();
@@ -148,7 +78,7 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
    */
   protected function _description()
   {
-    $companyWebsite = Link::create("http://21six.com", "Company website");
+    $companyWebsite = Link::create("https://21six.com", "Company website");
     $companyWebsite->setTarget();
 
     $projects = UnorderedList::create();
@@ -159,9 +89,8 @@ class TwentyOneSixFrontendDeveloper extends AbstractCvJobItem
     $projects->addItem('Client websites functional updates and bug fixes.');
 
     return [
-      $this->_chalkstring(),
-      $this->_htmlEmailDevelopment(),
       $this->_animatedBanners(),
+      $this->_htmlEmailDevelopment(),
       Paragraph::create(BoldText::create('Additional Tasks;')),
       $projects,
     ];
