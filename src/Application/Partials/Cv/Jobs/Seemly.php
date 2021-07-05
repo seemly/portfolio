@@ -102,7 +102,7 @@ class Seemly extends AbstractCvJobItem
    */
   protected function _jobEndDate()
   {
-    return $this->_createDate();
+    return $this->_createDate(11, 2020);
   }
 
 }
