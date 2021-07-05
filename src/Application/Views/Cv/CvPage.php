@@ -12,6 +12,7 @@ use App\Application\Infrastructure\Ui\Bootstrap\Alert;
 use App\Application\Partials\Cv\Jobs\AbacusEmedia;
 use App\Application\Partials\Cv\Jobs\Babcock;
 use App\Application\Partials\Cv\Jobs\D3r;
+use App\Application\Partials\Cv\Jobs\DomainSalesHistory;
 use App\Application\Partials\Cv\Jobs\Fortifi;
 use App\Application\Partials\Cv\Jobs\JustDevelopIt;
 use App\Application\Partials\Cv\Jobs\MadProductions;
@@ -382,6 +383,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     return $this->_section(
       'Experience',
       [
+        DomainSalesHistory::i(),
         Babcock::i(),
         D3r::i(),
         TwentyOneSixHeadOfDigital::i(),
