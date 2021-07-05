@@ -65,9 +65,9 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   }
 
   /**
-   * @param string      $url
-   * @param string      $content
-   * @param string|null $tooltip
+   * @param  string  $url
+   * @param  string  $content
+   * @param  string|null  $tooltip
    *
    * @return Link
    */
@@ -91,6 +91,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   protected function _getEmail()
   {
     $email = Personal::EMAIL;
+
     return $this->_createContactLink("mailto:{$email}", $email);
   }
 
@@ -102,6 +103,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     if(!$this->_notJobSeeking())
     {
       $phone = Personal::MOBILE;
+
       return $this->_createContactLink("tel:{$phone}", $phone);
     }
 
@@ -192,6 +194,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   {
     $link = Link::create(Paths::CV_DOWNLOAD, 'Download CV')->setTarget();
     $link->addClass(BS::BTN_PRIMARY, BS::BTN_SM);
+
     return Div::create($link)->addClass(BS::MB_2, BS::DISPLAY_PRINT_NONE);
   }
 
@@ -240,8 +243,8 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   }
 
   /**
-   * @param string $name
-   * @param mixed  $content
+   * @param  string  $name
+   * @param  mixed  $content
    *
    * @return Div
    */
@@ -255,6 +258,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     $section = Div::create([$heading, $contentColumn]);
     $section->addClass('section', Strings::stringToCamelCase($name));
     $section->addClass(BS::ROW, BS::JUSTIFY_CONTENT_SM_CENTER);
+
     return $section;
   }
 
@@ -269,6 +273,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
     $start = date('Y-m-d', strtotime($firstJobStartDate));
     $start = new DateTime($start);
     $now   = new DateTime(date('Y-m-d', time()));
+
     return $start->diff($now)->y;
   }
 
@@ -279,8 +284,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   {
     $content = [
       Paragraph::create(
-        'A highly competent and attentive developer across both PHP and frontend ' . 'with more than ' . $this->_howManyYearsProgramming(
-        ) . ' years experience, ' . 'I have always sought to push myself and learn new skills. '
+        'A highly competent and attentive developer across both PHP and frontend ' . 'with more than ' . $this->_howManyYearsProgramming() . ' years experience, ' . 'I have always sought to push myself and learn new skills. '
       ),
       Paragraph::create(
         'I have a strong mindset towards working smart not hard, with a desire to iterate and improve.'
@@ -308,8 +312,8 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   }
 
   /**
-   * @param string $title
-   * @param string $content
+   * @param  string  $title
+   * @param  string  $content
    *
    * @return Div
    */
@@ -347,23 +351,24 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   protected function _getTechnicalSection()
   {
     $items = [
-      'HTML / CSS',
-      'HTML Emails',
-      'HTML5 Animated Banners',
-      'Javascript / jQuery',
       'PHP / MySQL',
+      'HTML / CSS',
+      'Javascript (ES6 / ES5)',
+      'React',
       'GIT',
       'CLI / SSH',
       'Photoshop',
+      'HTML Emails',
+      'HTML5 Animated Banners',
     ];
 
     $lists  = Div::create()->addClass(BS::ROW);
     $chunks = array_chunk($items, ceil(count($items) / 3));
-    foreach($chunks as $chunk)
+    foreach ($chunks as $chunk)
     {
       $list = UnorderedList::create();
       $list->addClass(BS::PX_3, BS::MY_0);
-      foreach($chunk as $item)
+      foreach ($chunk as $item)
       {
         $li = ListItem::create($item);
         $li->addClass(BS::BG_TRANSPARENT, BS::BORDER_0, BS::PY_1);
@@ -484,7 +489,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
    */
   protected function _seekingNewOpportunities()
   {
-    switch(Personal::JOB_SEEKING)
+    switch (Personal::JOB_SEEKING)
     {
       case JobSeeking::YES:
         return $this->_yesNewJob();
@@ -502,7 +507,7 @@ class CvPage extends AbstractContainerPage implements IDiscipline
   {
     return Div::create(
       [
-        Div::create($this->_seekingNewOpportunities())->addClass(BS::DISPLAY_PRINT_NONE),
+        //        Div::create($this->_seekingNewOpportunities())->addClass(BS::DISPLAY_PRINT_NONE),
         $this->_intro(),
         $this->_getProfileSection(),
         $this->_getTechnicalSection(),
