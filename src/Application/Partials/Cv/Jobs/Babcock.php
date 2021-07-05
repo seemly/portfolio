@@ -42,6 +42,9 @@ class Babcock extends AbstractCvJobItem
         'I work within the web development team on planning and building new projects, implementing new functionality, maintenance and support'
       ),
       $list,
+      Paragraph::create(
+        'The majority of projects are inherited code-bases, primarily built on Wordpress.'
+      ),
     ];
   }
 
